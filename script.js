@@ -69,16 +69,26 @@ if (mobileMenuBtn) {
 // Form Submission Feedback
 const forms = document.querySelectorAll('form');
 forms.forEach(form => {
-    form.addEventListener('submit', function () {
+    form.addEventListener('submit', function (e) {
+        const isLeadMagnet = this.id === 'lead-magnet-form';
         const btn = this.querySelector('button[type="submit"]');
+
         if (btn) {
             btn.innerHTML = `
                 <div class="flex items-center justify-center gap-2">
                     <span class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                    Processing...
+                    ${isLeadMagnet ? 'Generating Map...' : 'Processing...'}
                 </div>
             `;
             btn.disabled = true;
+        }
+
+        // If it's the lead magnet, redirect after a short delay
+        if (isLeadMagnet) {
+            e.preventDefault();
+            setTimeout(() => {
+                window.location.href = 'roadmap.html';
+            }, 1500);
         }
     });
 });
