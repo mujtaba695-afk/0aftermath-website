@@ -106,3 +106,48 @@ forms.forEach(form => {
         }
     });
 });
+
+// FAQ Accordion Functionality
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+
+    // Set initial state - all answers hidden
+    answer.style.maxHeight = '0';
+    answer.style.overflow = 'hidden';
+    answer.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+
+    question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // Close all other FAQs (optional: remove this block for multi-open behavior)
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherItem.classList.remove('active');
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Toggle current FAQ
+        if (isOpen) {
+            answer.style.maxHeight = '0';
+            item.classList.remove('active');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+            question.setAttribute('aria-expanded', 'false');
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            item.classList.add('active');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+            question.setAttribute('aria-expanded', 'true');
+        }
+    });
+
+    // Set initial ARIA attributes
+    question.setAttribute('aria-expanded', 'false');
+});

@@ -64,26 +64,229 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- JSON-LD SEO Schema -->
+    <!-- JSON-LD SEO Schema - Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "0aftermath",
+      "description": "AI-Powered Marketing & Automation Agency specializing in performance marketing, SEO, website development, and conversion optimization for businesses worldwide",
       "url": "https://0aftermath.com",
       "logo": "https://0aftermath.com/logo.png",
-      "description": "AI-Powered Digital Marketing & Automation Agency. Specialized in SEO, PPC, and Sales Automation for small businesses.",
-      "sameAs": [
-        "https://linkedin.com/company/0aftermath",
-        "https://twitter.com/0aftermath"
-      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+971-50-000-0000",
-        "contactType": "customer service",
-        "areaServed": "AE",
-        "availableLanguage": "en"
+        "email": "hello@0aftermath.com",
+        "contactType": "Customer Service"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5"
       }
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema - SEO/SEM -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "SEO and Search Engine Marketing",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "description": "Technical SEO audits, authority building, and search engine marketing with AI-powered optimization for businesses globally"
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema - Paid Performance -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Paid Advertising Management",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "description": "AI-optimized paid advertising campaigns across Google Ads, Meta Ads, TikTok, and LinkedIn with predictive bidding and creative strategy"
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema - AI Automation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Marketing Automation",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "description": "AI-powered marketing automation including lead nurturing, customer re-engagement, CRM workflow optimization, and intelligent lead qualification"
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema - Website Development -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Website Development and Optimization",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "description": "Conversion-optimized website development with lightning-fast performance, full SEO optimization, and mobile-first design using Next.js and React"
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema - Social Media Management -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Social Media Management",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "description": "Social media management across Instagram, Facebook, LinkedIn, and TikTok including content strategy, community management, and influencer partnerships"
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema - Email Marketing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Email Marketing Automation",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "description": "Email marketing automation with personalized campaigns, behavioral triggers, and lifecycle nurturing achieving 42:1 average ROI"
+    }
+    </script>
+
+    <!-- JSON-LD FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is AI-powered marketing automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI-powered marketing automation uses machine learning and artificial intelligence to optimize and automate repetitive marketing tasks. Instead of manually managing campaigns, AI analyzes data in real-time to make smart decisions about ad bidding, audience targeting, content personalization, and customer engagement. This includes automated email workflows, intelligent chatbots, predictive lead scoring, and dynamic ad optimization. The key benefit is that AI can process millions of data points instantly and continuously learn from results, making your marketing more efficient and effective."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does AI reduce customer acquisition costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI reduces customer acquisition costs through several mechanisms. First, it optimizes ad bidding in real-time, ensuring you never overpay for clicks or impressions. Second, AI improves targeting accuracy by analyzing behavioral patterns to identify high-intent audiences. Third, it automates A/B testing at scale, quickly identifying winning creative combinations. Fourth, AI-powered lead scoring helps sales teams focus on qualified leads. Finally, predictive analytics prevent budget waste by forecasting performance and reallocating spend. On average, businesses see 30-50% reduction in CAC within 90 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between traditional and AI marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditional marketing relies on manual campaign management and periodic optimization based on weekly or monthly reports. AI marketing operates in real-time with continuous optimization, making thousands of micro-adjustments every hour. Traditional marketing uses broad audience segments; AI creates hyper-personalized experiences. Traditional methods require significant time for testing; AI runs hundreds of simultaneous tests automatically. The result is faster optimization, lower costs, better targeting, and typically 2-4x better ROI than traditional approaches."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to see results from AI marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most businesses see initial results within 30-45 days, with significant improvements by 60-90 days. The first 2-3 weeks focus on data collection and AI model training. Weeks 3-6 show early wins with typically 15-25% improvement in key metrics. By months 2-3, AI has enough data for sophisticated predictions, and this is when major improvements happen: 30-50% cost reductions and 2-3x ROI improvements are common. AI gets smarter over time, continuously improving unlike traditional marketing where results plateau."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What industries benefit most from AI marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI marketing delivers results across virtually every industry, but it's particularly powerful for businesses with high customer acquisition costs, complex sales cycles, or large-scale operations. E-commerce benefits through abandoned cart recovery and personalized recommendations. Real estate leverages AI for lead qualification and automated follow-up. SaaS companies use AI for conversion optimization and churn prediction. Healthcare benefits from appointment scheduling and patient nurturing. B2B companies gain from account-based marketing automation. The common thread is businesses that generate significant leads or traffic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a large budget to use AI marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, AI marketing is accessible at almost any budget level. Small businesses can start with $1,500-3,000 monthly in ad spend plus automation tools. What matters more than budget size is efficiency—AI helps smaller budgets perform better by eliminating waste. Businesses with limited budgets often see the most dramatic improvements. We recommend starting with one or two channels and one automation workflow. Many clients started with $2,000 monthly and scaled to $15,000+ within 6 months based on proven returns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does AI optimize ad bidding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI ad bidding uses machine learning to predict which ad auctions are most likely to result in conversions, then adjusts bids in real-time. It analyzes hundreds of signals simultaneously: time of day, device type, location, user behavior history, competitor activity, and more. It calculates the precise value of each opportunity and bids accordingly. If AI predicts 80% conversion probability, it bids aggressively. If only 20%, it bids conservatively or skips the auction. This dynamic approach typically reduces cost-per-acquisition by 30-50%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI help with lead qualification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. AI-powered lead qualification uses predictive scoring to identify which leads are most likely to convert. It analyzes factors like: how they found you, pages visited, time on site, form responses, email engagement, and company information. It assigns a score indicating conversion probability. High-scoring leads get immediate attention, medium-scoring leads enter nurturing workflows, and low-scoring leads receive automated content. Clients typically see 3-5x improvement in sales efficiency and 40-60% reduction in time wasted on unqualified leads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What tools and platforms do you use for AI automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use best-in-class tools across the marketing stack. For AI: Claude AI, ChatGPT, and Google Gemini. For advertising: Google Ads, Meta Ads, TikTok Ads, and LinkedIn. For SEO: SEMrush and Ahrefs. For analytics: Google Analytics and Search Console. Automation workflows are built on Zapier, Make.com, and HubSpot. For web development: Next.js and React on Vercel. The key is integration—we connect these tools so data flows seamlessly and AI can optimize across your entire marketing ecosystem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does AI marketing automation cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Investment depends on business size, goals, and complexity. Small businesses: $1,500-3,500/month including ad spend, tools, and management. Mid-sized businesses: $5,000-15,000/month for multi-channel campaigns and advanced automation. Enterprise solutions: $15,000-50,000+/month with custom AI models and full-funnel automation. Most clients see 3-8x ROI within 90 days, meaning a $5,000 monthly investment generates $15,000-40,000 in additional revenue. We offer a free audit to provide a customized proposal with projected ROI."
+          }
+        }
+      ]
     }
     </script>
 
@@ -193,8 +396,10 @@
             <div class="text-center max-w-3xl mx-auto mb-20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Built for <span
                         class="text-primary italic">Precision</span></h2>
-                <p class="text-xl text-text-muted leading-relaxed">We don't just run ads. We engineer growth through
-                    data-backed AI frameworks and meticulous human oversight.</p>
+                <p class="text-xl text-text-muted leading-relaxed">AI-driven marketing engineered for precision. We
+                    combine data intelligence, advanced algorithms, and expert oversight to build campaigns that
+                    convert. No guesswork—just measurable, sustainable growth backed by continuous optimization and
+                    real-time insights.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -204,8 +409,14 @@
                         <i data-lucide="search" class="w-8 h-8"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">SEO/SEM</h3>
-                    <p class="text-text-muted mb-6 leading-relaxed">Dominate search rankings with Technical SEO that
-                        works. We optimize for intent, not just keywords.</p>
+                    <p class="text-lg font-semibold mb-3 text-text-main">Dominate search rankings with Technical SEO
+                        that works. We optimize for intent, not just keywords.</p>
+                    <p class="text-text-muted mb-6 leading-relaxed text-sm">Ranking requires more than keywords—Google
+                        prioritizes intent, experience, and relevance. We audit technical issues (speed, mobile,
+                        schema), build topical authority through strategic content, and target high-intent keywords that
+                        convert. For SEM, AI-powered Smart Bidding optimizes Google Ads with buyer-intent signals and
+                        tightly themed ad groups. Results: first-page rankings in 3-6 months, 40-60% lower paid search
+                        costs, sustainable organic growth.</p>
                     <ul class="space-y-3 text-sm font-semibold">
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i>
                             Technical Audits</li>
@@ -221,8 +432,14 @@
                         <i data-lucide="trending-up" class="w-8 h-8"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Paid Performance</h3>
-                    <p class="text-text-muted mb-6 leading-relaxed">Stop wasting budget. We optimize Meta, Google, and
-                        TikTok ads to lower your CAC and boost ROI.</p>
+                    <p class="text-lg font-semibold mb-3 text-text-main">Stop wasting budget. We optimize Meta, Google,
+                        and TikTok ads to lower your CAC and boost ROI.</p>
+                    <p class="text-text-muted mb-6 leading-relaxed text-sm">Most businesses waste 40-60% of ad budgets
+                        on poor targeting and inefficient bidding. We eliminate waste through AI-powered audience
+                        intelligence identifying behavioral purchase intent, not demographics. Real-time A/B testing
+                        auto-allocates budget to winning creative. Predictive bidding algorithms adjust thousands of
+                        times daily across Google, Meta, TikTok, and LinkedIn—maximizing conversions, minimizing cost.
+                        Multi-channel strategy with one focus: profitable growth.</p>
                     <ul class="space-y-3 text-sm font-semibold">
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-secondary"></i>
                             Predictive Bidding</li>
@@ -238,14 +455,172 @@
                         <i data-lucide="bot" class="w-8 h-8"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">AI Automation</h3>
-                    <p class="text-white/80 mb-6 leading-relaxed">Scale 24/7 without extra head count. Automated SMS,
-                        lead nurturing, and CRM workflows.</p>
+                    <p class="text-lg font-semibold mb-3">Scale 24/7 without extra headcount. Automated SMS, lead
+                        nurturing, and CRM workflows.</p>
+                    <p class="text-white/80 mb-6 leading-relaxed text-sm">AI automation handles repetitive tasks 24/7,
+                        freeing your team for strategy. Leads get immediate personalized responses, email sequences, and
+                        SMS reminders. Systems analyze engagement and adjust messaging automatically. AI detects churn
+                        signals and triggers win-back campaigns—recovering 10-15% of abandoned carts. CRM workflows
+                        notify sales, schedule tasks, and identify upsells. Built on Zapier, Make.com, and HubSpot,
+                        integrating seamlessly with your existing tools.</p>
                     <ul class="space-y-3 text-sm font-semibold">
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i>
                             Customer Re-engagement</li>
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i> Lead
                             Qualification</li>
                     </ul>
+                </div>
+                <!-- Website Development -->
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="code" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Website Development</h3>
+                    <p class="text-lg font-semibold mb-3 text-text-main">Websites That Convert</p>
+                    <p class="text-text-muted mb-6 leading-relaxed text-sm">Your website is your 24/7 salesperson—it
+                        must work flawlessly. We build lightning-fast, conversion-optimized sites using Next.js and
+                        React (90+ PageSpeed scores). Speed matters: 1-5 second load time increases bounce probability
+                        by 90%. CRO from day one: strategic CTAs, trust signals, mobile-first design (70%+ traffic),
+                        streamlined journeys. SEO baked in: schema markup, optimized tags, sitemaps, analytics. Results:
+                        2-3x industry conversion rates.</p>
+                    <ul class="space-y-3 text-sm font-semibold">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i>
+                            Conversion-Focused Design</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i>
+                            Lightning-Fast Performance (90+ PageSpeed)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i>
+                            Full SEO Optimization</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent"></i>
+                            Mobile-First Approach</li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Management -->
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 400ms;">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="users" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Social Media Management</h3>
+                    <p class="text-lg font-semibold mb-3 text-text-main">Build Your Brand on Social</p>
+                    <p class="text-text-muted mb-6 leading-relaxed text-sm">Social media builds relationships,
+                        authority, and results. We manage Instagram, Facebook, LinkedIn, and TikTok with data-driven
+                        strategies turning followers into customers. Purposeful content calendars balance education,
+                        entertainment, and promotion. Full production: design, video, captions, hashtags. B2B thought
+                        leadership on LinkedIn; viral-worthy B2C content on TikTok/Instagram. Daily community
+                        management, influencer partnerships, social commerce integration. Analytics-backed: tracking
+                        engagement, growth, traffic, and revenue ROI.</p>
+                    <ul class="space-y-3 text-sm font-semibold">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i>
+                            Content Strategy & Creation</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i>
+                            Community Management</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i>
+                            Influencer Partnerships</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i>
+                            Social Commerce Setup</li>
+                    </ul>
+                </div>
+
+                <!-- Email Marketing -->
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 500ms;">
+                    <div
+                        class="w-16 h-16 bg-secondary/10 text-secondary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="mail" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Email Marketing & Automation</h3>
+                    <p class="text-lg font-semibold mb-3 text-text-main">Email That Actually Converts</p>
+                    <p class="text-text-muted mb-6 leading-relaxed text-sm">Email averages 42:1 ROI—highest of any
+                        channel. We build intelligent systems with behavioral workflows: cart abandonment recovery,
+                        purchase onboarding, win-back campaigns. Hyper-targeted segmentation by behavior, purchase
+                        history, and interests achieves 35%+ open rates, 5%+ CTR (vs. 20%/2.5% average). Continuous A/B
+                        testing with AI auto-implementing winners. Integrates with Shopify, WooCommerce, HubSpot,
+                        Salesforce. Result: revenue-generating automation at scale.</p>
+                    <ul class="space-y-3 text-sm font-semibold">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                            Marketing Automation Setup</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                            Personalized Campaigns</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                            Behavioral Triggers</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-secondary"></i>
+                            Lifecycle Nurturing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-24 bg-bg-alt">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our AI-Powered Growth Process</h2>
+                <p class="text-xl text-text-muted leading-relaxed">Data-driven methodology that transforms marketing
+                    performance through continuous AI optimization and strategic execution</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Step 1 -->
+                <div class="reveal bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-bold">
+                            1</div>
+                        <h3 class="text-2xl font-bold">Data Analysis & Audit</h3>
+                    </div>
+                    <p class="text-text-muted leading-relaxed">Comprehensive audit of website performance, ad accounts,
+                        conversion funnels, and competitive positioning. Using Google Analytics, SEMrush, and Ahrefs, we
+                        identify what works, what's broken, and biggest opportunities. Team interviews reveal goals,
+                        target customers, and challenges. 5-7 days delivers a detailed roadmap with strategies,
+                        projections, and investment levels.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="reveal bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all"
+                    style="transition-delay: 100ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-secondary text-white rounded-2xl flex items-center justify-center text-2xl font-bold">
+                            2</div>
+                        <h3 class="text-2xl font-bold">AI Model Training & Setup</h3>
+                    </div>
+                    <p class="text-text-muted leading-relaxed">Build AI-powered infrastructure: conversion tracking,
+                        analytics integration, CRM workflows, automation tools. Implement AI bidding strategies,
+                        audience segments, behavioral email workflows, and intelligent lead qualification. Train custom
+                        models on your historical data for business-specific patterns. 2-3 weeks, full technical
+                        implementation—no in-house expertise required.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="reveal bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all"
+                    style="transition-delay: 200ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-accent text-white rounded-2xl flex items-center justify-center text-2xl font-bold">
+                            3</div>
+                        <h3 class="text-2xl font-bold">Campaign Launch & Optimization</h3>
+                    </div>
+                    <p class="text-text-muted leading-relaxed">Launch campaigns with active daily monitoring while AI
+                        handles thousands of automatic micro-optimizations. Real-time bid adjustments, behavioral email
+                        triggers, optimal audience targeting. Continuous A/B testing on creative, messaging, pages, and
+                        targeting. Weekly analysis doubles down on winners. Early wins in 2-3 weeks; major improvements
+                        by week 6-8 as AI gains predictive sophistication.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="reveal bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all"
+                    style="transition-delay: 300ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-bold">
+                            4</div>
+                        <h3 class="text-2xl font-bold">Continuous Learning & Scaling</h3>
+                    </div>
+                    <p class="text-text-muted leading-relaxed">AI gets smarter over time—predictions sharpen, targeting
+                        improves, ROI grows continuously. Monthly strategy reviews scale what works: increased budgets,
+                        new audience segments, multi-platform replication. Detailed reporting tracks CAC, ROAS,
+                        conversions, and revenue attribution with full transparency. Most clients scale from test
+                        budgets to 3-5x spend within 6 months on proven returns.</p>
                 </div>
             </div>
         </div>
@@ -396,6 +771,261 @@
                             Road Map</button>
                     </form>
                     <p class="text-xs text-white/40 mt-6">Joined by 2,000+ marketing professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h2>
+                <p class="text-xl text-text-muted">Everything you need to know about AI-powered marketing</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">What is AI-powered marketing automation?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">AI-powered marketing automation uses machine
+                                learning and artificial intelligence to optimize and automate repetitive marketing
+                                tasks. Instead of manually managing campaigns, AI analyzes data in real-time to make
+                                smart decisions about ad bidding, audience targeting, content personalization, and
+                                customer engagement. This includes automated email workflows, intelligent chatbots,
+                                predictive lead scoring, and dynamic ad optimization. The key benefit is that AI can
+                                process millions of data points instantly and continuously learn from results, making
+                                your marketing more efficient and effective. It's like having a marketing expert working
+                                24/7 to improve your campaigns, reduce costs, and increase conversions without constant
+                                human oversight.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">How does AI reduce customer acquisition costs?
+                        </h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">AI reduces customer acquisition costs through
+                                several mechanisms. First, it optimizes ad bidding in real-time, ensuring you never
+                                overpay for clicks or impressions by adjusting bids based on conversion probability.
+                                Second, AI improves targeting accuracy by analyzing behavioral patterns to identify
+                                high-intent audiences, reducing wasted ad spend on unqualified prospects. Third, it
+                                automates A/B testing at scale, quickly identifying winning creative and messaging
+                                combinations. Fourth, AI-powered lead scoring helps sales teams focus on the most
+                                qualified leads, improving conversion rates. Finally, predictive analytics prevent
+                                budget waste by forecasting campaign performance and reallocating spend to
+                                top-performing channels. On average, businesses implementing AI marketing see 30-50%
+                                reduction in CAC within the first 90 days.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">What's the difference between traditional and AI
+                            marketing?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">Traditional marketing relies on manual campaign
+                                management, human intuition, and periodic optimization based on weekly or monthly
+                                reports. Marketers set campaigns, monitor performance, and make adjustments based on
+                                historical data. AI marketing, by contrast, operates in real-time with continuous
+                                optimization. Instead of waiting days to analyze results, AI makes thousands of
+                                micro-adjustments every hour based on live performance data. Traditional marketing uses
+                                broad audience segments; AI creates hyper-personalized experiences for individual users.
+                                Traditional methods require significant time for testing and optimization; AI runs
+                                hundreds of simultaneous tests and implements winners automatically. The result is
+                                faster optimization, lower costs, better targeting, and significantly improved
+                                ROI—typically 2-4x better than traditional approaches.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">How long does it take to see results from AI
+                            marketing?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">Most businesses see initial results within 30-45
+                                days, with significant improvements by 60-90 days. In the first 2-3 weeks, we focus on
+                                data collection and AI model training, setting up tracking, integrating systems, and
+                                gathering baseline performance metrics. Weeks 3-6 show early wins as AI begins
+                                optimizing based on initial data—you'll typically see 15-25% improvement in key metrics.
+                                By months 2-3, AI has enough data to make sophisticated predictions, and this is when
+                                major improvements happen: 30-50% cost reductions and 2-3x ROI improvements are common.
+                                The key is that AI gets smarter over time. Unlike traditional marketing where results
+                                plateau, AI-powered campaigns continuously improve as they gather more data and identify
+                                new optimization opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">What industries benefit most from AI marketing?
+                        </h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">AI marketing delivers results across virtually
+                                every industry, but it's particularly powerful for businesses with high customer
+                                acquisition costs, complex sales cycles, or large-scale operations. E-commerce sees
+                                massive benefits through abandoned cart recovery, dynamic pricing, and personalized
+                                product recommendations. Real estate leverages AI for lead qualification, predictive
+                                buyer identification, and automated follow-up. SaaS companies use AI for trial-to-paid
+                                conversion optimization and churn prediction. Healthcare and professional services
+                                benefit from intelligent appointment scheduling and patient/client nurturing. B2B
+                                companies gain from account-based marketing automation and sales intelligence. The
+                                common thread is businesses that generate significant leads or traffic—AI excels at
+                                converting more of that traffic at lower cost.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">Do I need a large budget to use AI marketing?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">No, AI marketing is accessible at almost any
+                                budget level. While enterprise companies might invest $10,000+ monthly, small businesses
+                                can start with $1,500-3,000/month in ad spend plus automation tools. What matters more
+                                than budget size is budget efficiency—AI actually helps smaller budgets perform better
+                                by eliminating waste and optimizing every dollar spent. In fact, businesses with limited
+                                budgets often see the most dramatic improvements because there's more inefficiency to
+                                eliminate. We recommend starting with one or two channels (like Google Ads or Facebook)
+                                and one automation workflow (like lead nurturing or cart abandonment). As AI proves ROI,
+                                you can scale investment. Many of our clients started with $2,000/month and scaled to
+                                $15,000+ within 6 months based on proven returns.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">How does AI optimize ad bidding?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">AI ad bidding uses machine learning algorithms to
+                                predict which ad auctions are most likely to result in conversions, then adjusts bids in
+                                real-time to maximize ROI. Traditional bidding uses static rules like 'bid $5 per click'
+                                or 'target $50 cost per conversion.' AI bidding analyzes hundreds of signals
+                                simultaneously: time of day, device type, location, user behavior history, competitor
+                                activity, seasonal trends, and more. It calculates the precise value of each individual
+                                ad opportunity and bids accordingly. For example, if AI predicts a user has 80%
+                                conversion probability based on their behavior, it might bid aggressively. If
+                                probability is only 20%, it bids conservatively or skips the auction entirely. This
+                                dynamic approach typically reduces cost-per-acquisition by 30-50% while maintaining or
+                                increasing conversion volume.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">Can AI help with lead qualification?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">Absolutely, and this is one of AI's most valuable
+                                applications. AI-powered lead qualification uses predictive scoring to identify which
+                                leads are most likely to convert based on dozens of behavioral and demographic signals.
+                                Instead of sales teams manually reviewing every inquiry, AI instantly analyzes factors
+                                like: how they found you, which pages they visited, time spent on site, form responses,
+                                email engagement, social media activity, company size, industry, and budget indicators.
+                                It then assigns a score (0-100) indicating conversion probability. High-scoring leads
+                                get immediate attention, medium-scoring leads enter nurturing workflows, and low-scoring
+                                leads receive automated content. This allows sales teams to focus on qualified
+                                opportunities. Our clients typically see 3-5x improvement in sales efficiency and 40-60%
+                                reduction in time wasted on unqualified leads.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">What tools and platforms do you use for AI
+                            automation?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">We use best-in-class tools across the marketing
+                                technology stack. For AI and automation, we leverage Claude AI and ChatGPT for content
+                                generation and customer interactions, plus Google Gemini for advanced data analysis. For
+                                advertising, we work with Google Ads, Meta Ads Manager, TikTok Ads, and LinkedIn
+                                Campaign Manager, all using their AI-powered optimization features. For SEO and
+                                analytics, we use SEMrush and Ahrefs for keyword research and competitive analysis, plus
+                                Google Analytics and Google Search Console for performance tracking. Automation
+                                workflows are built on Zapier, Make.com, and HubSpot, connecting all your marketing
+                                tools into intelligent systems. For web development, we use modern frameworks like
+                                Next.js and React hosted on Vercel for fast, SEO-optimized sites. The key is
+                                integration—we connect these tools so data flows seamlessly and AI can optimize across
+                                your entire marketing ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="faq-item bg-bg-alt rounded-2xl overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg md:text-xl font-bold pr-4">How much does AI marketing automation cost?</h3>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-primary faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 md:p-8 pt-0">
+                            <p class="text-text-muted leading-relaxed">Investment depends on business size, goals, and
+                                complexity. For small businesses, expect $1,500-3,500/month including ad spend,
+                                automation tools, and management. This typically covers 1-2 primary channels (Google Ads
+                                or Facebook), basic automation workflows (email nurturing, lead scoring), and monthly
+                                optimization. Mid-sized businesses investing $5,000-15,000/month get multi-channel
+                                campaigns, advanced automation (chatbots, SMS, CRM integration), and dedicated strategic
+                                support. Enterprise solutions with custom AI models, full-funnel automation, and
+                                white-glove service range from $15,000-50,000+/month. Most clients see 3-8x ROI within
+                                90 days, meaning a $5,000 monthly investment generates $15,000-40,000 in additional
+                                revenue. We offer a free audit to assess your current situation and provide a customized
+                                proposal with projected ROI based on your specific business metrics.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
