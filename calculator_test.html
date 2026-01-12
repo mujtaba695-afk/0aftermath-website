@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator | 0aftermath</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#06B6D4',
+                        accent: '#F97316',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        input:focus,
+        select:focus {
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        /* Modal Animation */
+        .modal-backdrop {
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .modal-content {
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="logo.png" alt="0aftermath" class="h-20 md:h-24">
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/#contact"
+                    class="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Calculator Section -->
+    <section
+        class="relative min-h-screen flex items-center justify-center pt-32 pb-20 bg-gradient-to-br from-purple-50 via-white to-cyan-50">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <span
+                        class="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text font-bold text-sm uppercase tracking-wider">
+                        ROI Calculator
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mt-4 mb-6">
+                        Estimate Your
+                        <span
+                            class="bg-gradient-to-r from-primary via-secondary to-accent text-transparent bg-clip-text">
+                            Campaign Results
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Get instant estimates for your campaign
+                    </p>
+                </div>
+
+                <!-- Calculator Card -->
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100">
+                    <form id="calculatorForm" class="space-y-6">
+                        <!-- Account Status -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Ad Account Status *
+                            </label>
+                            <select id="accountStatus" required
+                                class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                                <option value="">Select account status</option>
+                                <option value="new">New Account</option>
+                                <option value="old">Old Account</option>
+                            </select>
+                        </div>
+
+                        <!-- Industry -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Industry *
+                            </label>
+                            <select id="industry" required
+                                class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                                <option value="">Select industry</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="ecommerce">E-Commerce</option>
+                                <option value="fnb">F&B / Restaurants</option>
+                                <option value="b2b">B2B Services</option>
+                            </select>
+                        </div>
+
+                        <!-- Campaign Objective -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Campaign Objective *
+                            </label>
+                            <select id="objective" required
+                                class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                                <option value="">Select objective</option>
+                                <option value="awareness">Brand Awareness (Reach/Impressions)</option>
+                                <option value="traffic">Traffic (Website Visits)</option>
+                                <option value="leads">Lead Generation (Leads/Sign-ups)</option>
+                                <option value="conversions">Conversions (Sales/Purchases)</option>
+                            </select>
+                        </div>
+
+                        <!-- Platform -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Platform *
+                            </label>
+                            <div class="relative">
+                                <select id="platform" required
+                                    class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                                    <option value="">Select platform</option>
+                                    <option value="google">Google</option>
+                                    <option value="meta">Meta (FB/IG)</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="tiktok">TikTok</option>
+                                </select>
+                                <!-- Platform Icon -->
+                                <div id="platformIcon"
+                                    class="absolute right-16 top-1/2 transform -translate-y-1/2 hidden">
+                                    <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+                                        id="platformIconContainer"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ad Type (Conditional) -->
+                        <div id="adTypeContainer" style="display: none;">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Ad Type *
+                            </label>
+                            <select id="adType"
+                                class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                                <option value="">Select ad type</option>
+                            </select>
+                        </div>
+
+                        <!-- Budget -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Monthly Budget (AED) *
+                            </label>
+                            <input type="number" id="budget" required min="100" step="100" placeholder="e.g., 5000"
+                                class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                        </div>
+
+                        <!-- Calculate Button -->
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-5 rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.02] text-lg">
+                            Calculate ROI
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Section (Hidden by default) -->
+                <div id="resultsSection" class="mt-12 hidden">
+                    <h2 class="text-3xl font-display font-bold text-center mb-8">
+                        Your Estimated Results
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Card 1: Impressions -->
+                        <div
+                            class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
+                            <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text"
+                                id="impressionsValue">
+                                -
+                            </p>
+                        </div>
+
+                        <!-- Card 2: Clicks -->
+                        <div
+                            class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
+                            <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text"
+                                id="clicksValue">
+                                -
+                            </p>
+                        </div>
+
+                        <!-- Card 3: Dynamic Results -->
+                        <div
+                            class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-900" id="dynamicLabel">Est. Results</h3>
+                            <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text"
+                                id="dynamicValue">
+                                -
+                            </p>
+                        </div>
+
+                        <!-- Card 4: Cost Per Lead -->
+                        <div
+                            class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-gray-900">Cost Per Lead</h3>
+                            <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text"
+                                id="cplValue">
+                                -
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Modal -->
+    <div id="leadModal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <h3 class="text-2xl font-bold mb-2">Get Your Results</h3>
+                <p class="text-gray-600 mb-6">Enter your details to see the calculation</p>
+
+                <form id="leadForm" class="space-y-4">
+                    <div>
+                        <input type="text" id="leadName" required placeholder="Your Name *"
+                            class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                    </div>
+                    <div>
+                        <input type="email" id="leadEmail" required placeholder="Email Address *"
+                            class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                    </div>
+                    <div>
+                        <input type="tel" id="leadPhone" required
+                            placeholder="Phone Number (e.g., +971501234567 or 0501234567) *" minlength="10"
+                            maxlength="13"
+                            class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                        <p id="phoneError" class="text-xs text-red-500 mt-1 hidden">Please enter a valid UAE phone
+                            number</p>
+                        <p class="text-xs text-gray-500 mt-1">Format: +971501234567 or 0501234567</p>
+                    </div>
+                    <div>
+                        <input type="text" id="leadCompany" required placeholder="Company Name *"
+                            class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50">
+                        Show Results
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Objective-based ad format mapping
+        const objectiveAdFormats = {
+            'awareness': {
+                'google': [
+                    { value: 'display', label: 'Display Ads' },
+                    { value: 'video', label: 'Video Ads (YouTube)' },
+                    { value: 'discovery', label: 'Discovery/Demand Gen' }
+                ],
+                'meta': [
+                    { value: 'reach', label: 'Reach Ads' },
+                    { value: 'video', label: 'Video Ads' },
+                    { value: 'stories', label: 'Stories Ads' },
+                    { value: 'reels', label: 'Reels Ads' }
+                ],
+                'linkedin': [
+                    { value: 'sponsored-video', label: 'Sponsored Content (Video)' },
+                    { value: 'display', label: 'Display Ads' }
+                ],
+                'tiktok': [
+                    { value: 'topview', label: 'TopView Ads' },
+                    { value: 'in-feed-reach', label: 'In-Feed (Reach)' },
+                    { value: 'branded-hashtag', label: 'Branded Hashtag Challenge' }
+                ]
+            },
+            'traffic': {
+                'google': [
+                    { value: 'search', label: 'Search Ads' },
+                    { value: 'display', label: 'Display Ads' },
+                    { value: 'shopping', label: 'Shopping Ads' }
+                ],
+                'meta': [
+                    { value: 'traffic', label: 'Traffic Ads' },
+                    { value: 'carousel', label: 'Carousel Ads' },
+                    { value: 'collection', label: 'Collection Ads' }
+                ],
+                'linkedin': [
+                    { value: 'sponsored-content', label: 'Sponsored Content' },
+                    { value: 'text-ads', label: 'Text Ads' }
+                ],
+                'tiktok': [
+                    { value: 'in-feed', label: 'In-Feed Ads' },
+                    { value: 'spark', label: 'Spark Ads' }
+                ]
+            },
+            'leads': {
+                'google': [
+                    { value: 'search-forms', label: 'Search Ads (with forms)' },
+                    { value: 'pmax', label: 'Performance Max' },
+                    { value: 'local', label: 'Local Campaigns' }
+                ],
+                'meta': [
+                    { value: 'lead-ads', label: 'Lead Ads' },
+                    { value: 'instant-forms', label: 'Instant Forms' },
+                    { value: 'whatsapp', label: 'Click to WhatsApp' }
+                ],
+                'linkedin': [
+                    { value: 'lead-gen', label: 'Lead Gen Forms' },
+                    { value: 'sponsored-content', label: 'Sponsored Content' },
+                    { value: 'message-ads', label: 'Message Ads' }
+                ],
+                'tiktok': [
+                    { value: 'lead-gen', label: 'Lead Generation Ads' },
+                    { value: 'instant-forms', label: 'Instant Forms' }
+                ]
+            },
+            'conversions': {
+                'google': [
+                    { value: 'shopping', label: 'Shopping Ads' },
+                    { value: 'pmax', label: 'Performance Max' },
+                    { value: 'search', label: 'Search Ads' }
+                ],
+                'meta': [
+                    { value: 'sales', label: 'Conversion/Sales Ads' },
+                    { value: 'catalog', label: 'Catalog Sales' },
+                    { value: 'collection', label: 'Collection Ads' }
+                ],
+                'linkedin': [
+                    { value: 'conversion', label: 'Conversion Ads (B2B)' },
+                    { value: 'sponsored-content', label: 'Sponsored Content' }
+                ],
+                'tiktok': [
+                    { value: 'shopping', label: 'Shopping Ads' },
+                    { value: 'collection', label: 'Collection Ads' }
+                ]
+            }
+        };
+
+        // Platform icons
+        const platformIcons = {
+            'google': { emoji: '🔍', color: 'from-blue-500 to-green-500' },
+            'meta': { emoji: '📘', color: 'from-blue-600 to-purple-600' },
+            'linkedin': { emoji: '💼', color: 'from-blue-700 to-blue-500' },
+            'tiktok': { emoji: '🎵', color: 'from-pink-500 to-cyan-500' }
+        };
+
+        // CPA Data
+        const cpaData = {
+            'real-estate': { new: 375, old: 225, label: 'Qualified Leads', cpm: 35 },
+            'ecommerce': { new: 105, old: 75, label: 'Sales Orders', cpm: 25 },
+            'fnb': { new: 30, old: 20, label: 'Bookings / Messages', cpm: 20 },
+            'b2b': { new: 500, old: 325, label: 'B2B Leads', cpm: 40 }
+        };
+
+        // Form elements
+        const objectiveSelect = document.getElementById('objective');
+        const industrySelect = document.getElementById('industry');
+        const platformSelect = document.getElementById('platform');
+        const adTypeContainer = document.getElementById('adTypeContainer');
+        const adTypeSelect = document.getElementById('adType');
+        const calculatorForm = document.getElementById('calculatorForm');
+        const leadModal = document.getElementById('leadModal');
+        const leadForm = document.getElementById('leadForm');
+        const resultsSection = document.getElementById('resultsSection');
+
+        // Update ad type options when objective OR platform changes
+        function updateAdFormats() {
+            const objective = objectiveSelect.value;
+            const platform = platformSelect.value;
+            const platformIconEl = document.getElementById('platformIcon');
+            const platformIconContainer = document.getElementById('platformIconContainer');
+
+            if (objective && platform && objectiveAdFormats[objective] && objectiveAdFormats[objective][platform]) {
+                // Update ad type dropdown with objective-filtered formats
+                adTypeSelect.innerHTML = '<option value="">Select ad format</option>';
+                objectiveAdFormats[objective][platform].forEach(option => {
+                    const opt = document.createElement('option');
+                    opt.value = option.value;
+                    opt.textContent = option.label;
+                    adTypeSelect.appendChild(opt);
+                });
+                adTypeContainer.style.display = 'block';
+                adTypeSelect.required = true;
+
+                // Show platform icon
+                const icon = platformIcons[platform];
+                platformIconContainer.className = `w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br ${icon.color} text-white text-xl`;
+                platformIconContainer.textContent = icon.emoji;
+                platformIconEl.classList.remove('hidden');
+            } else {
+                adTypeContainer.style.display = 'none';
+                adTypeSelect.required = false;
+                if (platformIconEl) platformIconEl.classList.add('hidden');
+            }
+        }
+
+        // Listen to both objective and platform changes
+        objectiveSelect.addEventListener('change', updateAdFormats);
+        platformSelect.addEventListener('change', updateAdFormats);
+
+        // Calculator form submission
+        calculatorForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Check if lead already captured in this session
+            const isLeadCaptured = sessionStorage.getItem('isLeadCaptured');
+
+            if (isLeadCaptured === 'true') {
+                // Show results directly
+                calculateAndShowResults();
+            } else {
+                // Show lead capture modal
+                openModal();
+            }
+        });
+
+        // Lead form submission
+        leadForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validate UAE phone number
+            const phoneInput = document.getElementById('leadPhone');
+            const phoneError = document.getElementById('phoneError');
+            const phoneValue = phoneInput.value.trim();
+
+            // UAE phone regex: +971XXXXXXXXX (12 digits) or 0XXXXXXXXX (10 digits)
+            const uaePhoneRegex = /^(\+971|0)(50|52|54|55|56|58|2|3|4|6|7|9)\d{7}$/;
+
+            if (!uaePhoneRegex.test(phoneValue)) {
+                phoneError.classList.remove('hidden');
+                phoneInput.classList.add('border-red-500');
+                phoneInput.focus();
+                return; // Prevent form submission
+            } else {
+                phoneError.classList.add('hidden');
+                phoneInput.classList.remove('border-red-500');
+            }
+
+            // Capture lead data
+            const leadData = {
+                name: document.getElementById('leadName').value,
+                email: document.getElementById('leadEmail').value,
+                phone: phoneValue,
+                company: document.getElementById('leadCompany').value,
+                accountStatus: document.getElementById('accountStatus').value,
+                industry: document.getElementById('industry').value,
+                objective: document.getElementById('objective').value,
+                platform: document.getElementById('platform').value,
+                adType: document.getElementById('adType').value,
+                budget: document.getElementById('budget').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log data to console (for now)
+            logLeadData(leadData);
+
+            // Set session flag
+            sessionStorage.setItem('isLeadCaptured', 'true');
+
+            // Close modal and show results
+            closeModal();
+            calculateAndShowResults();
+        });
+
+        function calculateAndShowResults() {
+            const objective = document.getElementById('objective').value;
+            const accountStatus = document.getElementById('accountStatus').value;
+            const industry = document.getElementById('industry').value;
+            const budget = parseFloat(document.getElementById('budget').value);
+
+            if (!objective || !accountStatus || !industry || !budget) return;
+
+            const data = cpaData[industry];
+            const cpa = accountStatus === 'new' ? data.new : data.old;
+            const cpm = data.cpm;
+            const cpc = 12; // Average CPC
+
+            // Calculate base metrics
+            const impressions = Math.round((budget / cpm) * 1000);
+            const clicks = Math.round(budget / cpc);
+            const leads = Math.round(budget / cpa);
+            const conversions = leads; // Same calculation for conversions
+
+            // Dynamic results based on objective
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = ''; // Clear previous results
+
+            if (objective === 'awareness') {
+                // Awareness: Impressions, Reach, CPM
+                resultsGrid.className = 'grid grid-cols-1 md:grid-cols-3 gap-6';
+                resultsGrid.innerHTML = `
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Reach</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${Math.round(impressions * 0.7).toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">CPM</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${Math.round(cpm)} AED</p>
+                    </div>
+                `;
+            } else if (objective === 'traffic') {
+                // Traffic: Impressions, Clicks, CPC
+                resultsGrid.className = 'grid grid-cols-1 md:grid-cols-3 gap-6';
+                resultsGrid.innerHTML = `
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${clicks.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">CPC</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${Math.round(cpc)} AED</p>
+                    </div>
+                `;
+            } else if (objective === 'leads') {
+                // Leads: Impressions, Clicks, Leads, CPL
+                resultsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6';
+                resultsGrid.innerHTML = `
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${clicks.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. ${data.label}</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${leads.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Cost Per Lead</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">${Math.round(cpa)} AED</p>
+                    </div>
+                `;
+            } else if (objective === 'conversions') {
+                // Conversions: Impressions, Clicks, Conversions, CPA
+                resultsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6';
+                resultsGrid.innerHTML = `
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${clicks.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="shopping-cart" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Est. ${data.label}</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${conversions.toLocaleString()}</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">CPA</h3>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">${Math.round(cpa)} AED</p>
+                    </div>
+                `;
+            }
+
+            // Show results section
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Reinitialize Lucide icons
+            lucide.createIcons();
+        }
+
+        function openModal() {
+            leadModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => lucide.createIcons(), 100);
+        }
+
+        function closeModal() {
+            leadModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function logLeadData(data) {
+            console.log('=== LEAD CAPTURED ===');
+            console.log(JSON.stringify(data, null, 2));
+            console.log('=====================');
+        }
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
