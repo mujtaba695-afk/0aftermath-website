@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -85,7 +85,7 @@
     </style>
 </head>
 
-<body class="bg-white text-gray-900 antialiased">
+<body class="bg-white text-gray-900 antialiased overflow-x-hidden">
 
     <!-- Header -->
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
@@ -104,6 +104,7 @@
         </div>
     </header>
 
+    <main>
     <!-- Main Calculator Section -->
     <section
         class="relative min-h-screen flex items-center justify-center pt-32 pb-20 bg-gradient-to-br from-purple-50 via-white to-cyan-50">
@@ -138,7 +139,7 @@
                     <form id="calculatorForm" class="space-y-6">
                         <!-- Account Status -->
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <label for="accountStatus" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Ad Account Status *
                             </label>
                             <select id="accountStatus" required
@@ -151,7 +152,7 @@
 
                         <!-- Industry -->
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <label for="industry" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Industry *
                             </label>
                             <select id="industry" required
@@ -166,7 +167,7 @@
 
                         <!-- Campaign Objective -->
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <label for="objective" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Campaign Objective *
                             </label>
                             <select id="objective" required
@@ -181,7 +182,7 @@
 
                         <!-- Platform -->
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <label for="platform" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Platform *
                             </label>
                             <div class="relative">
@@ -204,7 +205,7 @@
 
                         <!-- Ad Type (Conditional) -->
                         <div id="adTypeContainer" style="display: none;">
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <label for="adType" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Ad Type *
                             </label>
                             <select id="adType"
@@ -215,7 +216,7 @@
 
                         <!-- Budget -->
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <label for="budget" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Monthly Budget (AED) *
                             </label>
                             <input type="number" id="budget" required min="100" step="100" placeholder="e.g., 5000"
@@ -296,6 +297,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Lead Capture Modal -->
     <div id="leadModal" class="fixed inset-0 z-50 hidden">
