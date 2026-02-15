@@ -341,13 +341,12 @@
                             class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
                     </div>
                     <div>
-                        <input type="tel" id="leadPhone" required
-                            placeholder="Phone Number (e.g., +971501234567 or 0501234567) *" minlength="10"
-                            maxlength="13"
+                        <input type="tel" id="leadPhone" required placeholder="Phone Number (with Country Code) *"
+                            minlength="7" maxlength="20"
                             class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
-                        <p id="phoneError" class="text-xs text-red-500 mt-1 hidden">Please enter a valid UAE phone
-                            number</p>
-                        <p class="text-xs text-gray-500 mt-1">Format: +971501234567 or 0501234567</p>
+                        <p id="phoneError" class="text-xs text-red-500 mt-1 hidden">Please enter a valid phone number
+                        </p>
+                        <p class="text-xs text-gray-500 mt-1">Include country code (e.g., +1, +971, +44)</p>
                     </div>
                     <div>
                         <input type="text" id="leadCompany" required placeholder="Company Name *"
@@ -537,10 +536,10 @@
             const phoneError = document.getElementById('phoneError');
             const phoneValue = phoneInput.value.trim();
 
-            // UAE phone regex: +971XXXXXXXXX (12 digits) or 0XXXXXXXXX (10 digits)
-            const uaePhoneRegex = /^(\+971|0)(50|52|54|55|56|58|2|3|4|6|7|9)\d{7}$/;
+            // International phone regex: Allows +, spaces, dashes, parentheses, 7-15 digits
+            const phoneRegex = /^\+?[\d\s-()]{7,20}$/;
 
-            if (!uaePhoneRegex.test(phoneValue)) {
+            if (!phoneRegex.test(phoneValue.replace(/[\s-()]/g, '')) || phoneValue.length < 7) {
                 phoneError.classList.remove('hidden');
                 phoneInput.classList.add('border-red-500');
                 phoneInput.focus();

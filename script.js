@@ -86,6 +86,15 @@ forms.forEach(form => {
                 btn.disabled = true;
             }
 
+            // Capture Email in PostHog
+            const emailInput = this.querySelector('input[type="email"]');
+            const userEmail = emailInput ? emailInput.value : null;
+
+            if (userEmail && window.posthog) {
+                posthog.identify(userEmail, { email: userEmail });
+                posthog.capture('lead_magnet_download', { email: userEmail });
+            }
+
             // Redirect after simulating a brief generation process
             setTimeout(() => {
                 window.location.href = 'roadmap.html';
