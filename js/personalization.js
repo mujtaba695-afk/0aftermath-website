@@ -21,10 +21,10 @@
     // Note: 'brand' content replaces the static HTML default to match the "Agencies are dead" strategy.
     const CONTENT = {
         'brand': { // Default/Direct Traffic
-            headline: 'Agencies are dead. <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">We killed them.</span>',
-            subtitle: '<strong>0aftermath</strong> is the AI anomaly that replaced the agency model. Automated, predictive, and purely performance-based.',
-            formTitle: 'Apply for Beta Access',
-            formSubtitle: 'We only work with 5 new partners this month.'
+            headline: 'AI-Powered Marketing & <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Automation</span>',
+            subtitle: 'We help businesses grow using data and automation. Get better results with less waste.',
+            formTitle: 'Get Your Free Audit',
+            formSubtitle: 'See how AI can improve your marketing.'
         },
         'service': { // Search / AI Traffic
             headline: 'Scale Your Business with <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI-Driven</span> Marketing Mastery',
