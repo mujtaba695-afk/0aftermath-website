@@ -19,6 +19,7 @@
             api_host: 'https://us.i.posthog.com',
             defaults: '2026-01-30',
             person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+            opt_out_capturing_by_default: true // Respect user privacy by default
         })
     </script>
 
@@ -54,7 +55,8 @@
     </script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Pinned Version) -->
+    <script src="https://unpkg.com/lucide@0.469.0"></script>
 
     <style>
         * {
@@ -746,6 +748,7 @@
         lucide.createIcons();
     </script>
 
+    <script src="js/cookie-banner.js"></script>
 </body>
 
 </html>
