@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+    <meta charset="UTF-8">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KWKDKSYLC"></script>
     <script>
@@ -23,9 +24,23 @@
         })
     </script>
 
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROI Calculator | 0aftermath</title>
+    <meta name="description" content="Estimate your campaign ROI instantly. Enter your budget, industry, platform and objective to see projected impressions, clicks, leads and cost per result — powered by 0aftermath.">
+    <link rel="canonical" href="https://0aftermath.com/roi-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0aftermath.com/roi-calculator.html">
+    <meta property="og:title" content="ROI Calculator | 0aftermath">
+    <meta property="og:description" content="Get instant estimates for your ad campaign. See projected impressions, clicks, leads and cost per result before you spend a single dirham.">
+    <meta property="og:image" content="https://0aftermath.com/social-preview.png">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://0aftermath.com/roi-calculator.html">
+    <meta property="twitter:title" content="ROI Calculator | 0aftermath">
+    <meta property="twitter:description" content="Get instant estimates for your ad campaign before you spend a single dirham.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +56,7 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#7C3AED',
+                        primary: '#4F46E5',
                         secondary: '#06B6D4',
                         accent: '#F97316',
                     },
@@ -54,9 +69,7 @@
         }
     </script>
 
-    <!-- Lucide Icons -->
-    <!-- Lucide Icons (Pinned Version) -->
-    <script src="https://unpkg.com/lucide@0.469.0"></script>
+    <link rel="stylesheet" href="styles.css">
 
     <style>
         * {
@@ -71,7 +84,7 @@
 
         input:focus,
         select:focus {
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
 
         /* Modal Animation */
@@ -361,6 +374,13 @@
         </div>
     </div>
 
+    <!-- Supabase Client -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <!-- Lucide Icons -->
+    <!-- Lucide Icons (Pinned Version) -->
+    <script src="https://unpkg.com/lucide@0.469.0"></script>
+
     <script>
         // Objective-based ad format mapping
         const objectiveAdFormats = {
@@ -549,6 +569,25 @@
                 phoneInput.classList.remove('border-red-500');
             }
 
+            // Rate limit check — block spam before hitting Supabase
+            const rateCheck = checkRateLimit();
+            if (!rateCheck.allowed) {
+                const submitBtn = leadForm.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.textContent = `Too many submissions. Try again in ${rateCheck.minutesLeft} min.`;
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
+                }
+                return;
+            }
+
+            // Disable button to prevent double-submission
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></span>Submitting…';
+            }
+
             // Capture lead data
             const leadData = {
                 name: document.getElementById('leadName').value,
@@ -564,8 +603,19 @@
                 timestamp: new Date().toISOString()
             };
 
+            // Calculate metrics for storage
+            const metrics = calculateMetrics();
+
+            // Enrich lead data with metrics
+            if (metrics) {
+                leadData.metrics = metrics;
+            }
+
             // Log data to console (for now)
             logLeadData(leadData);
+
+            // Send to Supabase
+            submitLeadToSupabase(leadData);
 
             // Set session flag
             sessionStorage.setItem('isLeadCaptured', 'true');
@@ -575,13 +625,13 @@
             calculateAndShowResults();
         });
 
-        function calculateAndShowResults() {
+        function calculateMetrics() {
             const objective = document.getElementById('objective').value;
             const accountStatus = document.getElementById('accountStatus').value;
             const industry = document.getElementById('industry').value;
             const budget = parseFloat(document.getElementById('budget').value);
 
-            if (!objective || !accountStatus || !industry || !budget) return;
+            if (!objective || !accountStatus || !industry || !budget) return null;
 
             const data = cpaData[industry];
             const cpa = accountStatus === 'new' ? data.new : data.old;
@@ -592,7 +642,28 @@
             const impressions = Math.round((budget / cpm) * 1000);
             const clicks = Math.round(budget / cpc);
             const leads = Math.round(budget / cpa);
-            const conversions = leads; // Same calculation for conversions
+
+            return {
+                impressions,
+                clicks,
+                leads,
+                cpa
+            };
+        }
+
+        function calculateAndShowResults() {
+            const metrics = calculateMetrics();
+            if (!metrics) return;
+
+            const { impressions, clicks, leads, cpa } = metrics;
+            const objective = document.getElementById('objective').value;
+            const industry = document.getElementById('industry').value;
+            const data = cpaData[industry];
+            const cpc = 12;
+            const cpm = data.cpm;
+            const budget = parseFloat(document.getElementById('budget').value);
+            // Re-calculate simple conversions = leads for display consistency
+            const conversions = leads;
 
             // Dynamic results based on objective
             const resultsGrid = document.getElementById('resultsGrid');
@@ -741,6 +812,80 @@
             console.log('=== LEAD CAPTURED ===');
             console.log(JSON.stringify(data, null, 2));
             console.log('=====================');
+        }
+
+        // Initialize Supabase
+        const supabaseUrl = 'https://tjrxjxieuvwnzjcpjtjm.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqcnhqeGlldXZ3bnpqY3BqdGptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkwNzkwMTYsImV4cCI6MjA4NDY1NTAxNn0.LuUibm8jMvC_YfQeS9Ux-ZgpEFeQ2UfUnlzT1eylsJQ'; // Anon Key
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+        window.submitLeadToSupabase = submitLeadToSupabase;
+
+        // --- Rate Limiting (client-side guard) ---
+        // Limits to 3 Supabase submissions per browser per hour.
+        // Note: RLS policies on the Supabase side are the authoritative server-level guard.
+        function checkRateLimit() {
+            const LIMIT = 3;
+            const WINDOW_MS = 60 * 60 * 1000; // 1 hour
+            const STORAGE_KEY = 'roi_calc_submissions';
+            const now = Date.now();
+
+            let submissions = [];
+            try {
+                submissions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            } catch (_) { submissions = []; }
+
+            // Purge entries outside the time window
+            submissions = submissions.filter(t => now - t < WINDOW_MS);
+
+            if (submissions.length >= LIMIT) {
+                const nextAllowed = new Date(submissions[0] + WINDOW_MS);
+                const minutesLeft = Math.ceil((nextAllowed - now) / 60000);
+                return { allowed: false, minutesLeft };
+            }
+
+            submissions.push(now);
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(submissions)); } catch (_) {}
+            return { allowed: true };
+        }
+
+        async function submitLeadToSupabase(data) {
+            try {
+                const { error } = await supabaseClient
+                    .from('leads')
+                    .insert([{
+                        name: data.name,
+                        email: data.email,
+                        phone: data.phone,
+                        company: data.company,
+                        account_status: data.accountStatus,
+                        industry: data.industry,
+                        objective: data.objective,
+                        platform: data.platform,
+                        ad_type: data.adType,
+                        budget: parseFloat(data.budget),
+                        estimated_impressions: parseFloat(data.metrics.impressions),
+                        estimated_clicks: parseFloat(data.metrics.clicks),
+                        estimated_leads: parseFloat(data.metrics.leads),
+                        estimated_cpl: parseFloat(data.metrics.cpa)
+                    }]);
+
+                if (error) throw error;
+                console.log('Lead saved to Supabase successfully');
+
+                // Identify in PostHog
+                if (window.posthog) {
+                    posthog.identify(data.email, {
+                        name: data.name,
+                        company: data.company,
+                        phone: data.phone
+                    });
+                    posthog.capture('lead_captured', data);
+                }
+
+            } catch (err) {
+                console.error('Error saving lead:', err);
+                // Fallback: Store locally (already done via sessionStorage flag) or retry
+            }
         }
 
         // Initialize Lucide icons

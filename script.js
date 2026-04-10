@@ -25,8 +25,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // Optional: stop observing once revealed
-            // revealObserver.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
         }
     });
 }, revealOptions);
@@ -57,13 +56,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Mobile Menu Toggle (Simple implementation)
-const mobileMenuBtn = document.querySelector('header button');
-if (mobileMenuBtn) {
+// Mobile Menu
+const mobileMenuBtn = document.querySelector('header button[aria-label="Open Mobile Menu"]');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-        // You could add a full mobile menu overlay here
-        alert('Mobile menu feature coming soon - all links available in desktop view.');
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        lucide.createIcons();
     });
+}
+
+if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+}
+
+if (mobileMenuBackdrop) {
+    mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
 }
 
 // Form Submission Feedback

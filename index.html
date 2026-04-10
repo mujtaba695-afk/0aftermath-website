@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+    <meta charset="UTF-8">
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -23,7 +24,6 @@
             opt_out_capturing_by_default: true // Respect user privacy by default
         })
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
     <title>0aftermath | AI Automation & Digital Marketing Agency</title>
@@ -31,6 +31,7 @@
         content="AI Automation, Digital Marketing, SEO, Web Development, Social Media Ads, 0aftermath">
     <meta name="author" content="0aftermath">
     <meta name="google-site-verification" content="1vPwhgnRrMehTMsCo84ZKmLxoZcT3E9L-AAZv8Px0KU" />
+    <link rel="canonical" href="https://0aftermath.com/">
 
     <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website">
@@ -93,9 +94,6 @@
         }
     </script>
 
-    <!-- Lucide Icons -->
-    <!-- Lucide Icons (Pinned Version for Security) -->
-    <script src="https://unpkg.com/lucide@0.469.0"></script>
     <!-- JSON-LD SEO Schema - Organization -->
     <script type="application/ld+json">
     {
@@ -341,7 +339,7 @@
     <!-- Header -->
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
+            <a href="/" class="flex items-center gap-3">
                 <img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main">
             </a>
             <nav class="hidden lg:flex items-center gap-8 font-medium">
@@ -357,8 +355,28 @@
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8">
+            <div class="flex items-center justify-between mb-12">
+                <img src="logo.png" alt="0aftermath" class="h-14">
+                <button id="mobile-menu-close" aria-label="Close Mobile Menu" class="p-2 rounded-xl hover:bg-gray-100 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-gray-700"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-1 flex-1" aria-label="Mobile Navigation">
+                <a href="#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a>
+                <a href="#case-studies" class="mobile-nav-link" onclick="closeMobileMenu()">Case Studies</a>
+                <a href="#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
+                <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
+            </nav>
+            <a href="#contact" onclick="closeMobileMenu()" class="btn-premium text-white px-6 py-4 rounded-full text-center font-bold text-lg mt-8 block shadow-xl">Get Started &rarr;</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-bg-alt">
+    <section id="contact" class="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-bg-alt">
         <div class="absolute inset-0 opacity-20 pointer-events-none">
             <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
             <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
@@ -407,14 +425,22 @@
 
                         <form action="https://formspree.io/f/xjknogol" method="POST" class="space-y-4">
                             <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="name" required placeholder="Full Name *"
-                                    class="w-full px-5 py-4 rounded-xl bg-bg-alt border border-gray-100 focus:border-primary focus:bg-white outline-none transition-all">
-                                <input type="email" name="_replyto" required placeholder="Email *"
-                                    class="w-full px-5 py-4 rounded-xl bg-bg-alt border border-gray-100 focus:border-primary focus:bg-white outline-none transition-all">
+                                <div>
+                                    <label for="contact-name" class="sr-only">Full Name</label>
+                                    <input id="contact-name" type="text" name="name" required placeholder="Full Name *"
+                                        class="w-full px-5 py-4 rounded-xl bg-bg-alt border border-gray-100 focus:border-primary focus:bg-white outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="sr-only">Email Address</label>
+                                    <input id="contact-email" type="email" name="_replyto" required placeholder="Email *"
+                                        class="w-full px-5 py-4 rounded-xl bg-bg-alt border border-gray-100 focus:border-primary focus:bg-white outline-none transition-all">
+                                </div>
                             </div>
-                            <input type="tel" name="phone" placeholder="Phone Number"
+                            <label for="contact-phone" class="sr-only">Phone Number</label>
+                            <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number"
                                 class="w-full px-5 py-4 rounded-xl bg-bg-alt border border-gray-100 focus:border-primary focus:bg-white outline-none transition-all">
-                            <select name="service" required
+                            <label for="contact-service" class="sr-only">Select Service</label>
+                            <select id="contact-service" name="service" required
                                 class="w-full px-5 py-4 rounded-xl bg-bg-alt border border-gray-100 focus:border-primary focus:bg-white outline-none transition-all">
                                 <option value="">Select Service *</option>
                                 <option value="seo">Full SEO Audit</option>
@@ -767,45 +793,53 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="group cursor-pointer p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all">
-                    <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">01</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Search Intent vs.
-                            Keywords</h4>
-                        <p class="text-sm text-text-muted">Why your blog posts aren't ranking despite high keyword
-                            density. The shift to semantic relevance.</p>
-                    </div>
-                </div>
-                <div class="group cursor-pointer p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
+                <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all">
+                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: Search Intent vs. Keywords">
+                        <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">01</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Search Intent vs.
+                                Keywords</h4>
+                            <p class="text-sm text-text-muted">Why your blog posts aren't ranking despite high keyword
+                                density. The shift to semantic relevance.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
                     style="transition-delay: 100ms;">
-                    <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">02</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Site Speed =
-                            Revenue</h4>
-                        <p class="text-sm text-text-muted">A technical breakdown of how a 1s delay costs you 7% in
-                            conversions. How we hit 100 on Lighthouse.</p>
-                    </div>
-                </div>
-                <div class="group cursor-pointer p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
+                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: Site Speed = Revenue">
+                        <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">02</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Site Speed =
+                                Revenue</h4>
+                            <p class="text-sm text-text-muted">A technical breakdown of how a 1s delay costs you 7% in
+                                conversions. How we hit 100 on Lighthouse.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
                     style="transition-delay: 200ms;">
-                    <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">03</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Automating Sales
-                        </h4>
-                        <p class="text-sm text-text-muted">Using AI agents to qualify leads while you sleep. The tools
-                            you need for a 24/7 sales engine.</p>
-                    </div>
-                </div>
-                <div class="group cursor-pointer p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
+                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: Automating Sales">
+                        <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">03</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Automating Sales
+                            </h4>
+                            <p class="text-sm text-text-muted">Using AI agents to qualify leads while you sleep. The tools
+                                you need for a 24/7 sales engine.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
                     style="transition-delay: 300ms;">
-                    <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">04</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">The Perfect 2026
-                            Landing Page</h4>
-                        <p class="text-sm text-text-muted">Anatomy of a page that converts at 10%+. From trust signals
-                            to frictionless lead capture.</p>
-                    </div>
-                </div>
+                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: The Perfect 2026 Landing Page">
+                        <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">04</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">The Perfect 2026
+                                Landing Page</h4>
+                            <p class="text-sm text-text-muted">Anatomy of a page that converts at 10%+. From trust signals
+                                to frictionless lead capture.</p>
+                        </div>
+                    </a>
+                </article>
             </div>
         </div>
     </section>
@@ -1104,19 +1138,19 @@
                 <div>
                     <h5 class="font-bold mb-6">Resources</h5>
                     <ul class="space-y-4 text-text-muted">
-                        <li><a href="#" class="hover:text-primary transition-colors">Case Studies</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Insights</a></li>
+                        <li><a href="#case-studies" class="hover:text-primary transition-colors">Case Studies</a></li>
+                        <li><a href="#insights" class="hover:text-primary transition-colors">Insights</a></li>
                         <li><a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI
                                 Calculator</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Free SEO Checklist</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors">Free Marketing Audit</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="font-bold mb-6">Contact</h5>
                     <ul class="space-y-4 text-text-muted">
                         <li>Dubai, UAE</li>
-                        <li>hello@0aftermath.com</li>
-                        <li>+971 50 000 0000</li>
+                        <li><a href="mailto:hello@0aftermath.com" class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
+                        <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000 0000</a></li>
                     </ul>
                 </div>
             </div>
@@ -1135,6 +1169,9 @@
         </div>
     </footer>
 
+    <!-- Lucide Icons -->
+    <!-- Lucide Icons (Pinned Version for Security) -->
+    <script src="https://unpkg.com/lucide@0.469.0"></script>
     <script src="script.js"></script>
 
     <!--Start of Tawk.to Script-->

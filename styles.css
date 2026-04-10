@@ -142,3 +142,35 @@ h4,
 .faq-answer {
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Mobile Navigation Menu */
+.mobile-menu-panel {
+    animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 0.875rem 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-main);
+    border-radius: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+    transition: var(--transition-smooth);
+}
+
+.mobile-nav-link:hover {
+    background-color: var(--bg-alt);
+    color: var(--primary);
+    padding-left: 1.5rem;
+}
