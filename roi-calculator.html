@@ -2,72 +2,11 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+    <link rel="stylesheet" href="tailwind-build.css?v=1.0.0">
     <meta charset="UTF-8">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KWKDKSYLC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-5KWKDKSYLC');
-    </script>
-
-    <!-- PostHog Analytics -->
-    <script>
-        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog && window.posthog.__loaded) || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init ns hs wi ls ds rs os capture calculateEventProperties fs register register_once register_for_session unregister unregister_for_session bs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty gs cs createPersonProfile setInternalOrTestUser ts ys opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing vs debug M ps getPageViewId captureTraceFeedback captureTraceMetric Xr".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
-        posthog.init('phc_A2EBFw7WcH13olNljLpjWwIdSfKsPlOoUbjBs7YIWg3', {
-            api_host: 'https://us.i.posthog.com',
-            defaults: '2026-01-30',
-            person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-            opt_out_capturing_by_default: true // Respect user privacy by default
-        })
-    </script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROI Calculator | 0aftermath</title>
-    <meta name="description" content="Estimate your campaign ROI instantly. Enter your budget, industry, platform and objective to see projected impressions, clicks, leads and cost per result — powered by 0aftermath.">
-    <link rel="canonical" href="https://0aftermath.com/roi-calculator.html">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://0aftermath.com/roi-calculator.html">
-    <meta property="og:title" content="ROI Calculator | 0aftermath">
-    <meta property="og:description" content="Get instant estimates for your ad campaign. See projected impressions, clicks, leads and cost per result before you spend a single dirham.">
-    <meta property="og:image" content="https://0aftermath.com/social-preview.png">
-
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://0aftermath.com/roi-calculator.html">
-    <meta property="twitter:title" content="ROI Calculator | 0aftermath">
-    <meta property="twitter:description" content="Get instant estimates for your ad campaign before you spend a single dirham.">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4F46E5',
-                        secondary: '#06B6D4',
-                        accent: '#F97316',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    
 
     <link rel="stylesheet" href="styles.css?v=2.0.0">
 
@@ -379,7 +318,7 @@
 
     <!-- Lucide Icons -->
     <!-- Lucide Icons (Pinned Version) -->
-    <script src="https://unpkg.com/lucide@0.469.0"></script>
+    <script src="https://unpkg.com/lucide@0.469.0" defer></script>
 
     <script>
         // Objective-based ad format mapping
