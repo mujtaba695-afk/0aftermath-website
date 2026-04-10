@@ -93,12 +93,21 @@
                 <img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main">
             </a>
             <nav class="hidden lg:flex items-center gap-8 font-medium">
-                <a href="index.html#services" class="hover:text-primary transition-colors">Services</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-trigger">Services <i data-lucide="chevron-down" class="w-4 h-4 nav-chevron"></i></button>
+                    <div class="nav-dropdown-menu">
+                        <a href="seo.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="search" class="w-5 h-5"></i></div><div class="ndi-text"><p>SEO & Semantic Ranking</p><p>Rank on Google & get cited by AI</p></div></a>
+                        <a href="ads.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="trending-up" class="w-5 h-5"></i></div><div class="ndi-text"><p>Paid Performance</p><p>Stop wasting ad budget</p></div></a>
+                        <a href="automation.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="bot" class="w-5 h-5"></i></div><div class="ndi-text"><p>AI Automation</p><p>Your sales team, running 24/7</p></div></a>
+                        <a href="website-development.html" class="nav-dropdown-item"><div class="ndi-icon bg-accent/10 text-accent"><i data-lucide="code" class="w-5 h-5"></i></div><div class="ndi-text"><p>Website Development</p><p>Websites built to convert</p></div></a>
+                        <a href="social-media.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="users" class="w-5 h-5"></i></div><div class="ndi-text"><p>Social Media Management</p><p>Build your brand on social</p></div></a>
+                        <a href="email-marketing.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="mail" class="w-5 h-5"></i></div><div class="ndi-text"><p>Email Marketing</p><p>42x ROI — highest-return channel</p></div></a>
+                    </div>
+                </div>
                 <a href="index.html#case-studies" class="hover:text-primary transition-colors">Case Studies</a>
                 <a href="index.html#insights" class="hover:text-primary transition-colors">Insights</a>
                 <a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a>
-                <a href="index.html#contact" class="btn-premium text-white px-6 py-2.5 rounded-full shadow-lg">Get
-                    Started</a>
+                <a href="index.html#contact" class="btn-premium text-white px-6 py-2.5 rounded-full shadow-lg">Get Started</a>
             </nav>
             <button onclick="openMobileMenu()" class="lg:hidden text-text-main p-2" aria-label="Open Mobile Menu">
                 <i data-lucide="menu" class="w-8 h-8"></i>
@@ -109,18 +118,23 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
         <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8">
-            <div class="flex items-center justify-between mb-12">
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8 overflow-y-auto">
+            <div class="flex items-center justify-between mb-8">
                 <img src="logo.png" alt="0aftermath" class="h-14">
                 <button id="mobile-menu-close" aria-label="Close Mobile Menu"
                     class="p-2 rounded-xl hover:bg-gray-100 transition-colors">
                     <i data-lucide="x" class="w-6 h-6 text-gray-700"></i>
                 </button>
             </div>
-            <nav class="flex flex-col gap-1 flex-1" aria-label="Mobile Navigation">
-                <a href="index.html#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a>
-                <a href="index.html#case-studies" class="mobile-nav-link"
-                    onclick="closeMobileMenu()">Case Studies</a>
+            <nav class="flex flex-col gap-0.5 flex-1" aria-label="Mobile Navigation">
+                <span class="mobile-nav-section">Services</span>
+                <a href="seo.html" class="mobile-nav-link mobile-nav-sub">SEO &amp; Semantic Ranking</a>
+                <a href="ads.html" class="mobile-nav-link mobile-nav-sub">Paid Performance</a>
+                <a href="automation.html" class="mobile-nav-link mobile-nav-sub">AI Automation</a>
+                <a href="website-development.html" class="mobile-nav-link mobile-nav-sub">Website Development</a>
+                <a href="social-media.html" class="mobile-nav-link mobile-nav-sub">Social Media</a>
+                <a href="email-marketing.html" class="mobile-nav-link mobile-nav-sub">Email Marketing</a>
+                <a href="index.html#case-studies" class="mobile-nav-link" onclick="closeMobileMenu()">Case Studies</a>
                 <a href="index.html#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
                 <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
             </nav>
@@ -153,7 +167,7 @@
                 <a href="index.html#contact"
                     class="btn-premium text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl">Review My Ad
                     Account</a>
-                <a href="https://cal.com/0aftermath" target="_blank" rel="noopener noreferrer"
+                <a href="index.html#contact"
                     class="px-10 py-5 rounded-2xl bg-white border border-gray-200 hover:border-primary/40 transition-all font-bold text-lg text-text-main">Book
                     a Strategy Call</a>
             </div>

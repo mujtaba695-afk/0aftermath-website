@@ -343,7 +343,38 @@
                 <img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main">
             </a>
             <nav class="hidden lg:flex items-center gap-8 font-medium">
-                <a href="#services" class="hover:text-primary transition-colors">Services</a>
+                <!-- Services Mega Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-trigger">
+                        Services <i data-lucide="chevron-down" class="w-4 h-4 nav-chevron"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="seo.html" class="nav-dropdown-item">
+                            <div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="search" class="w-5 h-5"></i></div>
+                            <div class="ndi-text"><p>SEO & Semantic Ranking</p><p>Rank on Google & get cited by AI</p></div>
+                        </a>
+                        <a href="ads.html" class="nav-dropdown-item">
+                            <div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                            <div class="ndi-text"><p>Paid Performance</p><p>Stop wasting ad budget</p></div>
+                        </a>
+                        <a href="automation.html" class="nav-dropdown-item">
+                            <div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="bot" class="w-5 h-5"></i></div>
+                            <div class="ndi-text"><p>AI Automation</p><p>Your sales team, running 24/7</p></div>
+                        </a>
+                        <a href="website-development.html" class="nav-dropdown-item">
+                            <div class="ndi-icon bg-accent/10 text-accent"><i data-lucide="code" class="w-5 h-5"></i></div>
+                            <div class="ndi-text"><p>Website Development</p><p>Websites built to convert</p></div>
+                        </a>
+                        <a href="social-media.html" class="nav-dropdown-item">
+                            <div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="users" class="w-5 h-5"></i></div>
+                            <div class="ndi-text"><p>Social Media Management</p><p>Build your brand on social</p></div>
+                        </a>
+                        <a href="email-marketing.html" class="nav-dropdown-item">
+                            <div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                            <div class="ndi-text"><p>Email Marketing</p><p>42x ROI — highest-return channel</p></div>
+                        </a>
+                    </div>
+                </div>
                 <a href="#case-studies" class="hover:text-primary transition-colors">Case Studies</a>
                 <a href="#insights" class="hover:text-primary transition-colors">Insights</a>
                 <a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a>
@@ -358,15 +389,21 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
         <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8">
-            <div class="flex items-center justify-between mb-12">
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8 overflow-y-auto">
+            <div class="flex items-center justify-between mb-8">
                 <img src="logo.png" alt="0aftermath" class="h-14">
                 <button id="mobile-menu-close" aria-label="Close Mobile Menu" class="p-2 rounded-xl hover:bg-gray-100 transition-colors">
                     <i data-lucide="x" class="w-6 h-6 text-gray-700"></i>
                 </button>
             </div>
-            <nav class="flex flex-col gap-1 flex-1" aria-label="Mobile Navigation">
-                <a href="#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a>
+            <nav class="flex flex-col gap-0.5 flex-1" aria-label="Mobile Navigation">
+                <span class="mobile-nav-section">Services</span>
+                <a href="seo.html" class="mobile-nav-link mobile-nav-sub">SEO &amp; Semantic Ranking</a>
+                <a href="ads.html" class="mobile-nav-link mobile-nav-sub">Paid Performance</a>
+                <a href="automation.html" class="mobile-nav-link mobile-nav-sub">AI Automation</a>
+                <a href="website-development.html" class="mobile-nav-link mobile-nav-sub">Website Development</a>
+                <a href="social-media.html" class="mobile-nav-link mobile-nav-sub">Social Media</a>
+                <a href="email-marketing.html" class="mobile-nav-link mobile-nav-sub">Email Marketing</a>
                 <a href="#case-studies" class="mobile-nav-link" onclick="closeMobileMenu()">Case Studies</a>
                 <a href="#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
                 <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
@@ -455,6 +492,39 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Service Navigation Cards (prominent, above main fold) ── -->
+    <section class="py-10 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-[0.68rem] font-extrabold uppercase tracking-[0.15em] text-text-muted mb-7">What We Do</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <a href="seo.html" class="service-nav-card">
+                    <div class="snc-icon bg-primary/10 text-primary"><i data-lucide="search" class="w-5 h-5"></i></div>
+                    <p>SEO &amp;<br>Ranking</p>
+                </a>
+                <a href="ads.html" class="service-nav-card">
+                    <div class="snc-icon bg-secondary/10 text-secondary"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                    <p>Paid<br>Performance</p>
+                </a>
+                <a href="automation.html" class="service-nav-card">
+                    <div class="snc-icon bg-primary/10 text-primary"><i data-lucide="bot" class="w-5 h-5"></i></div>
+                    <p>AI<br>Automation</p>
+                </a>
+                <a href="website-development.html" class="service-nav-card">
+                    <div class="snc-icon bg-accent/10 text-accent"><i data-lucide="code" class="w-5 h-5"></i></div>
+                    <p>Website<br>Development</p>
+                </a>
+                <a href="social-media.html" class="service-nav-card">
+                    <div class="snc-icon bg-primary/10 text-primary"><i data-lucide="users" class="w-5 h-5"></i></div>
+                    <p>Social<br>Media</p>
+                </a>
+                <a href="email-marketing.html" class="service-nav-card">
+                    <div class="snc-icon bg-secondary/10 text-secondary"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                    <p>Email<br>Marketing</p>
+                </a>
             </div>
         </div>
     </section>
