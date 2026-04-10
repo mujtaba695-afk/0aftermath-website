@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | 0aftermath</title>
+    <meta name="description"
+        content="Find answers to common questions about AI automation, performance marketing, and digital growth strategies at 0aftermath.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A1172',
+                        secondary: '#0A1172',
+                        accent: '#0A1172',
+                        'text-main': '#000000',
+                        'text-muted': '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-white text-black antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/10">
+        <div class="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="0aftermath" class="h-12 md:h-16 transition-all logo-main">
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="text-sm font-bold hover:text-primary transition-colors">Home</a>
+                <a href="seo.html" class="text-sm font-bold hover:text-primary transition-colors">SEO</a>
+                <a href="ads.html" class="text-sm font-bold hover:text-primary transition-colors">Paid Ads</a>
+                <a href="automation.html" class="text-sm font-bold hover:text-primary transition-colors">AI
+                    Automation</a>
+                <a href="index.html#header"
+                    class="bg-primary text-white px-8 py-3 rounded-xl text-sm font-bold shadow-lg shadow-blue-900/10">Free
+                    Audit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Hero -->
+    <section class="pt-40 pb-20 bg-slate-50">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Help Center</span>
+            <h1 class="text-5xl md:text-7xl font-bold font-display text-secondary mb-6">Frequently Asked <span
+                    class="text-primary">Questions</span></h1>
+            <p class="text-xl text-text-muted max-w-2xl mx-auto">Detailed answers to everything you need to know about
+                scaling with AI.</p>
+        </div>
+    </section>
+
+    <!-- FAQ List -->
+    <section class="py-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="space-y-6">
+                <!-- FAQ Item 1: GEO -->
+                <div class="faq-item bg-white rounded-3xl border border-black/10 p-8 shadow-sm reveal">
+                    <h3 class="text-2xl font-bold font-display text-primary mb-4 italic">What is Generative Engine
+                        Optimization (GEO)?</h3>
+                    <p class="text-black/70 leading-relaxed font-medium">In 2026, SEO is evolving into GEO. AI models
+                        like SearchGPT and Perplexity don't just list websites; they summarize answers. GEO is the
+                        technical process of ensuring your brand is the primary source cited in those summaries. It
+                        requires structured semantic data and topical predominance rather than simple keyword stuffing.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 2: Predictive Bidding -->
+                <div class="faq-item bg-white rounded-3xl border border-black/10 p-8 shadow-sm reveal"
+                    style="transition-delay: 100ms;">
+                    <h3 class="text-2xl font-bold font-display text-primary mb-4 italic">How does predictive AI bidding
+                        outperform humans?</h3>
+                    <p class="text-black/70 leading-relaxed font-medium">Humans react to yesterday's data; our AI
+                        predicts tomorrow's behavior. By analyzing micro-signals across multi-channel conversion paths,
+                        our systems adjust bids every 15 seconds to catch high-intent buyers before competitors even see
+                        the signal. This preemptive strikes typically reduces CAC by 40% compared to manual management.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3: Autonomous CRM -->
+                <div class="faq-item bg-white rounded-3xl border border-black/10 p-8 shadow-sm reveal"
+                    style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-bold font-display text-primary mb-4 italic">What is an "Autonomous" CRM
+                        engine?</h3>
+                    <p class="text-black/70 leading-relaxed font-medium">An autonomous CRM doesn't wait for your team to
+                        enter data. It uses AI agents to scrape intent, qualify leads through behavioral analysis, and
+                        trigger personalized follow-ups via SMS or Email instantly. It turns your database from a
+                        passive storage unit into a 24/7 self-optimizing sales engine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-primary text-white text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-white/50 font-bold mb-4 uppercase tracking-widest text-xs">Engineered by 0aftermath</p>
+            <div class="flex justify-center gap-8 text-sm font-bold">
+                <a href="index.html" class="text-white/80 hover:text-white transition-all">Home</a>
+                <a href="faq.html" class="text-white/80 hover:text-white transition-all">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

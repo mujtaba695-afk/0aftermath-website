@@ -253,7 +253,7 @@ h4,
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    z-index: 200;
+    z-index: 9999;
 }
 
 /* Bridge gap so hover doesn't break when moving cursor */
@@ -301,6 +301,11 @@ h4,
     justify-content: center;
     flex-shrink: 0;
     transition: background 0.2s, color 0.2s;
+}
+
+.ndi-text {
+    flex: 1;
+    min-width: 0;
 }
 
 .ndi-text p:first-child {

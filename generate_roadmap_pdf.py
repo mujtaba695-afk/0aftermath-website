@@ -1,5 +1,23 @@
+import atexit
+import os
+
+from dotenv import load_dotenv
 from fpdf import FPDF
+from posthog import Posthog
 import textwrap
+
+load_dotenv()
+
+_posthog = Posthog(
+    os.environ.get('POSTHOG_PROJECT_TOKEN', ''),
+    host=os.environ.get('POSTHOG_HOST', 'https://us.i.posthog.com'),
+    enable_exception_autocapture=True,
+) if os.environ.get('POSTHOG_PROJECT_TOKEN') else None
+
+if _posthog:
+    atexit.register(_posthog.shutdown)
+
+_DISTINCT_ID = 'system-generate-roadmap-pdf'
 
 class RoadmapPDF(FPDF):
     def header(self):
@@ -40,6 +58,13 @@ class RoadmapPDF(FPDF):
         self.ln(1)
 
 def create_pdf():
+    if _posthog:
+        _posthog.capture(
+            distinct_id=_DISTINCT_ID,
+            event='pdf_generation_started',
+            properties={'output_file': 'roadmap_2026.pdf', 'chapter_count': 5},
+        )
+
     pdf = RoadmapPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     
@@ -237,5 +262,18 @@ Market Domination Play: Launch an aggressive "conquesting" campaign targeting co
 
     pdf.output('roadmap_2026.pdf')
 
+    if _posthog:
+        _posthog.capture(
+            distinct_id=_DISTINCT_ID,
+            event='pdf_generation_completed',
+            properties={'output_file': 'roadmap_2026.pdf', 'chapter_count': 5},
+        )
+
+
 if __name__ == '__main__':
-    create_pdf()
+    try:
+        create_pdf()
+    except Exception as e:
+        if _posthog:
+            _posthog.capture_exception(e, _DISTINCT_ID)
+        raise

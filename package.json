@@ -1,0 +1,30 @@
+{
+  "name": "0aftermath-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujtaba695-afk/0aftermath-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mujtaba695-afk/0aftermath-website/issues"
+  },
+  "homepage": "https://github.com/mujtaba695-afk/0aftermath-website#readme",
+  "devDependencies": {
+    "eslint": "^10.0.0",
+    "http-server": "^14.1.1",
+    "playwright": "^1.58.2",
+    "pm2": "^6.0.14",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

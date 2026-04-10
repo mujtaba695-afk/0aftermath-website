@@ -1,0 +1,9 @@
+pandas
+langchain
+openai
+beautifulsoup4
+requests
+pytest
+playwright
+posthog>=3.0.0
+python-dotenv>=1.0.0
