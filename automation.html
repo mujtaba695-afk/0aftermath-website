@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Marketing Automation | 0aftermath</title>
+    <meta name="description"
+        content="Your business, running 24/7. 0aftermath builds AI automation systems that qualify leads, nurture prospects, and close customers — while your team sleeps.">
+    <link rel="canonical" href="https://0aftermath.com/automation.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Marketing Automation | 0aftermath">
+    <meta property="og:description"
+        content="Leads qualified, emails sent, meetings booked — all on autopilot. Build your 24/7 AI sales system.">
+    <meta property="og:image" content="https://0aftermath.com/social-preview.png">
+    <meta property="og:url" content="https://0aftermath.com/automation.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Marketing Automation | 0aftermath">
+    <meta name="twitter:description" content="Your business, running 24/7. AI systems that close while you sleep.">
+    <meta name="twitter:image" content="https://0aftermath.com/social-preview.png">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NHCJPPJJ');</script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#06B6D4',
+                        accent: '#F59E0B',
+                        'bg-alt': '#F8F8FB',
+                        'text-main': '#0D0D1A',
+                        'text-muted': '#6B7280',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- JSON-LD Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AI Marketing Automation & CRM Optimisation",
+      "provider": {
+        "@type": "Organization",
+        "name": "0aftermath",
+        "url": "https://0aftermath.com",
+        "logo": "https://0aftermath.com/logo.png"
+      },
+      "description": "Industrial-grade marketing automation using AI for lead qualification, lifecycle management, and workflow optimisation — running 24/7 without extra headcount.",
+      "areaServed": "Worldwide",
+      "url": "https://0aftermath.com/automation.html"
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHCJPPJJ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main">
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 font-medium">
+                <a href="index.html#services" class="hover:text-primary transition-colors">Services</a>
+                <a href="index.html#case-studies" class="hover:text-primary transition-colors">Case Studies</a>
+                <a href="index.html#insights" class="hover:text-primary transition-colors">Insights</a>
+                <a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a>
+                <a href="index.html#contact" class="btn-premium text-white px-6 py-2.5 rounded-full shadow-lg">Get
+                    Started</a>
+            </nav>
+            <button onclick="openMobileMenu()" class="lg:hidden text-text-main p-2" aria-label="Open Mobile Menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8">
+            <div class="flex items-center justify-between mb-12">
+                <img src="logo.png" alt="0aftermath" class="h-14">
+                <button id="mobile-menu-close" aria-label="Close Mobile Menu"
+                    class="p-2 rounded-xl hover:bg-gray-100 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-gray-700"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-1 flex-1" aria-label="Mobile Navigation">
+                <a href="index.html#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a>
+                <a href="index.html#case-studies" class="mobile-nav-link"
+                    onclick="closeMobileMenu()">Case Studies</a>
+                <a href="index.html#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
+                <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
+            </nav>
+            <a href="index.html#contact" onclick="closeMobileMenu()"
+                class="btn-premium text-white px-6 py-4 rounded-full text-center font-bold text-lg mt-8 block shadow-xl">Get
+                Started &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="relative min-h-[75vh] flex items-center pt-36 pb-20 overflow-hidden bg-bg-alt">
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-accent rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <span
+                class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-bold text-sm tracking-wide mb-6 uppercase">
+                24/7 Sales & Operations Intelligence
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold font-display leading-[1.1] mb-8 max-w-4xl">
+                Your Business,<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Running
+                    24/7.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-text-muted mb-10 max-w-2xl leading-relaxed">
+                A lead comes in at 2am. Your AI system greets them, asks the right questions, qualifies their budget,
+                and books a call — all before your team turns on their laptops.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html#contact"
+                    class="btn-premium text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl">Audit My
+                    Workflow</a>
+                <a href="#solutions"
+                    class="px-10 py-5 rounded-2xl bg-white border border-gray-200 hover:border-primary/40 transition-all font-bold text-lg text-text-main">Explore
+                    Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-16 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10 text-center">
+                <div class="reveal">
+                    <div class="text-4xl font-bold text-primary mb-2">&lt; 60s</div>
+                    <p class="text-sm font-semibold uppercase tracking-widest text-text-muted">Average AI response time
+                        to new leads</p>
+                </div>
+                <div class="reveal" style="transition-delay: 100ms;">
+                    <div class="text-4xl font-bold text-primary mb-2">10–15%</div>
+                    <p class="text-sm font-semibold uppercase tracking-widest text-text-muted">Abandoned cart revenue
+                        recovered on autopilot</p>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="text-4xl font-bold text-primary mb-2">12.4x</div>
+                    <p class="text-sm font-semibold uppercase tracking-widest text-text-muted">ROI on AI-qualified leads
+                        vs. manual outreach</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">What We <span class="text-primary italic">Automate</span></h2>
+                <p class="text-xl text-text-muted leading-relaxed">Every hour your team spends on repetitive tasks is
+                    an hour not spent on strategy. We build AI systems that handle the predictable work — so your people
+                    can focus on the work that actually requires humans.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="layers" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">CRM Optimisation</h3>
+                    <p class="text-text-muted leading-relaxed text-sm">We rebuild your CRM into a growth engine.
+                        Contact records update automatically. Sequences trigger based on behaviour. Every action is
+                        attributed to the right source. Your sales team sees a clean pipeline — not a mess.</p>
+                </div>
+
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="filter" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Lead Scoring</h3>
+                    <p class="text-text-muted leading-relaxed text-sm">Not every lead is equal. Our AI analyses website
+                        behaviour, email engagement, and social signals to score each lead in real time. Your team
+                        focuses on the 20% of leads that generate 80% of revenue.</p>
+                </div>
+
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="message-square" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Lifecycle SMS & Email</h3>
+                    <p class="text-text-muted leading-relaxed text-sm">Personalised, behaviour-triggered messages that
+                        feel human. Cart abandonment recovery. Post-purchase onboarding. Win-back campaigns for dormant
+                        customers. All running automatically, all the time.</p>
+                </div>
+
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="calendar" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Instant Appointment Booking</h3>
+                    <p class="text-text-muted leading-relaxed text-sm">Leads qualify themselves through a conversational
+                        AI flow, then book directly into your calendar. No back-and-forth emails. No missed
+                        opportunities while you're busy.</p>
+                </div>
+
+                <div class="hover-card p-10 rounded-3xl bg-bg-alt reveal" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="repeat" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Churn Prevention</h3>
+                    <p class="text-text-muted leading-relaxed text-sm">AI detects early signs that a customer is at
+                        risk of leaving — and automatically triggers a personalised win-back campaign before they
+                        churn. Recovering 10–15% of at-risk customers is significant revenue.</p>
+                </div>
+
+                <div class="hover-card p-10 rounded-3xl bg-primary text-white reveal shadow-2xl shadow-primary/20"
+                    style="transition-delay: 500ms;">
+                    <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="zap" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Seamless Integrations</h3>
+                    <p class="text-white/80 leading-relaxed text-sm">Built on Zapier, Make.com, and HubSpot — these
+                        systems plug into your existing tools. No ripping and replacing. No disruption. Just automation
+                        layered on top of what already works.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Lead Bridge -->
+    <section class="py-24 bg-bg-alt">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">The <span class="text-primary italic">"No-Human"</span> Lead Bridge</h2>
+                    <p class="text-xl text-text-muted mb-8 leading-relaxed">In 2026, speed to lead is measured in
+                        seconds. Research shows that responding to a lead within 5 minutes makes you 21x more likely to
+                        qualify them. We make sure your response is always instant.</p>
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-white border border-gray-100 font-semibold text-primary flex items-center gap-4">
+                            <i data-lucide="clock" class="w-5 h-5 flex-shrink-0"></i>
+                            <span>Immediate response — within seconds of a lead coming in</span>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-gray-100 font-semibold text-primary flex items-center gap-4">
+                            <i data-lucide="filter" class="w-5 h-5 flex-shrink-0"></i>
+                            <span>Automated qualification — budget, timeline, and fit</span>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white border border-gray-100 font-semibold text-primary flex items-center gap-4">
+                            <i data-lucide="calendar" class="w-5 h-5 flex-shrink-0"></i>
+                            <span>Instant appointment booking — direct to your calendar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative reveal" style="transition-delay: 200ms;">
+                    <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            <span
+                                class="text-xs text-text-muted font-mono tracking-widest pl-4 uppercase">Agents
+                                Online</span>
+                        </div>
+                        <div class="space-y-4 font-mono text-sm text-text-muted">
+                            <p class="text-primary font-semibold">&gt; New lead detected — 02:14am</p>
+                            <p>&gt; Sending personalised first message...</p>
+                            <p class="text-primary font-semibold">&gt; Intent signal: HIGH (purchase intent
+                                detected)</p>
+                            <p>&gt; Qualifying budget and timeline...</p>
+                            <p class="text-primary font-semibold">&gt; Triggering VIP booking sequence...</p>
+                            <p class="font-bold text-green-600">&gt; STATUS: MEETING BOOKED — 02:17am</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div
+                class="bg-[#111827] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden text-center reveal">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute -top-20 -left-20 w-80 h-80 bg-accent rounded-full blur-[100px]"></div>
+                    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary rounded-full blur-[100px]"></div>
+                </div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to build your 24/7 sales engine?</h2>
+                    <p class="text-xl text-white/70 mb-10 leading-relaxed">We'll audit your current workflow, identify
+                        where leads are slipping through, and show you exactly what automation can fix — at no cost to
+                        you.</p>
+                    <a href="index.html#contact"
+                        class="btn-accent text-text-main font-bold px-12 py-5 rounded-full text-lg inline-block">Audit
+                        My Workflow — Free</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Services -->
+    <section class="py-16 bg-bg-alt border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <h3 class="text-center text-2xl font-bold mb-12">Explore Related Services</h3>
+            <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <a href="seo.html" class="hover-card p-8 rounded-2xl bg-white flex items-center gap-6">
+                    <div
+                        class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold">SEO & Semantic Ranking</p>
+                        <p class="text-sm text-text-muted">Rank on Google and get cited by AI.</p>
+                    </div>
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-text-muted ml-auto"></i>
+                </a>
+                <a href="ads.html" class="hover-card p-8 rounded-2xl bg-white flex items-center gap-6">
+                    <div
+                        class="w-12 h-12 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold">Paid Performance</p>
+                        <p class="text-sm text-text-muted">Stop wasting ad spend. Use AI to target buyers.</p>
+                    </div>
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-text-muted ml-auto"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html"><img src="logo.png" alt="0aftermath - AI Marketing Agency"
+                            class="h-16 mb-6 logo-main"></a>
+                    <p class="text-text-muted max-w-sm">We're on a mission to simplify digital marketing for small
+                        businesses through the power of AI automation and performance engineering.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Services</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li><a href="seo.html" class="hover:text-primary transition-colors">SEO & Semantic Ranking</a>
+                        </li>
+                        <li><a href="ads.html" class="hover:text-primary transition-colors">Paid Performance</a></li>
+                        <li><a href="automation.html" class="text-primary font-semibold">AI Automation</a></li>
+                        <li><a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI
+                                Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Contact</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li>Dubai, UAE</li>
+                        <li><a href="mailto:hello@0aftermath.com"
+                                class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
+                        <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000
+                                0000</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-text-muted">© 2026 0aftermath. Built for Performance.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/company/0aftermath/?viewAsMember=true" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-text-muted hover:text-primary transition-colors"><i data-lucide="linkedin"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="text-text-muted hover:text-secondary transition-colors"><i
+                            data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-text-muted hover:text-accent transition-colors"><i
+                            data-lucide="instagram" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@0.469.0"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
