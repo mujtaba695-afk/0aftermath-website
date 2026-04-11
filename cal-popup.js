@@ -192,10 +192,10 @@
 
     document.getElementById('oa-cal-close').addEventListener('click', dismissPopup);
 
-    // ── Show after 2 seconds ───────────────────────────────────────────────
-    setTimeout(function () {
+    // ── Show instantly (rAF lets the CSS transition animate in) ───────────
+    requestAnimationFrame(function () {
         if (sessionStorage.getItem('cal_popup_dismissed') === '1') return;
         popup.classList.add('oa-visible');
-    }, 2000);
+    });
 
 })();
