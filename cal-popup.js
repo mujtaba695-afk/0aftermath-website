@@ -23,14 +23,14 @@
         '  z-index: 99999;',
         '  width: 300px;',
         '  max-width: calc(100vw - 3.5rem);',
-        '  transform: translateY(calc(100% + 2rem));',
+        '  transform: scale(0.85);',
         '  opacity: 0;',
-        '  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;',
+        '  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s ease;',
         '  pointer-events: none;',
         '  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;',
         '}',
         '#oa-cal-popup.oa-visible {',
-        '  transform: translateY(0);',
+        '  transform: scale(1);',
         '  opacity: 1;',
         '  pointer-events: auto;',
         '}',
@@ -192,10 +192,9 @@
 
     document.getElementById('oa-cal-close').addEventListener('click', dismissPopup);
 
-    // ── Show instantly (rAF lets the CSS transition animate in) ───────────
-    requestAnimationFrame(function () {
-        if (sessionStorage.getItem('cal_popup_dismissed') === '1') return;
+    // ── Show instantly ─────────────────────────────────────────────────────
+    if (sessionStorage.getItem('cal_popup_dismissed') !== '1') {
         popup.classList.add('oa-visible');
-    });
+    }
 
 })();
