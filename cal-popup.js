@@ -192,11 +192,10 @@
 
     document.getElementById('oa-cal-close').addEventListener('click', dismissPopup);
 
-    // ── Silent 60-second trigger ───────────────────────────────────────────
-    setTimeout(function () {
-        // Don't show if already dismissed mid-load
+    // ── Show on page fully loaded ──────────────────────────────────────────
+    window.addEventListener('load', function () {
         if (sessionStorage.getItem('cal_popup_dismissed') === '1') return;
         popup.classList.add('oa-visible');
-    }, 10000); // 10,000ms = 10 seconds
+    });
 
 })();
