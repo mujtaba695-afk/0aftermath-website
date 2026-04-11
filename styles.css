@@ -1,11 +1,52 @@
-/* ── Layout Foundation Override ──────────────────────────────────────────
-   These rules load AFTER tailwind-build.css and enforce correct layout
-   across every page. The Tailwind v4 build outputs conflicting responsive
-   container breakpoints (max-width: 40rem → 96rem) before a correct
-   1280px override at the end. We reinforce the correct values here so
-   there is zero ambiguity regardless of CSS load order.
-─────────────────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════
+   TAILWIND v4 SPACING FOUNDATION
+   ───────────────────────────────────────────────────────────────────────
+   Tailwind v4 generates ALL spacing utilities as calc(var(--spacing) * N)
+   but does NOT define --spacing in its build output. Without this one
+   variable, every p-*, py-*, px-*, m-*, gap-*, h-*, w-* utility computes
+   to 0px, causing total layout collapse: zero padding on cards, zero
+   vertical space between sections, zero gaps in grids.
 
+   We also define --text-* font-size tokens that Tailwind v4 references
+   (e.g. text-xl → font-size: var(--text-xl)) without declaring them.
+═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ── Spacing base ─────────────────────────────────────────────────── */
+    --spacing: 0.25rem;   /* 4px — Tailwind's standard multiplier          */
+
+    /* ── Font sizes (Tailwind v4 references these as var(--text-*)) ──── */
+    --text-xs:   0.75rem;
+    --text-sm:   0.875rem;
+    --text-base: 1rem;
+    --text-lg:   1.125rem;
+    --text-xl:   1.25rem;
+    --text-2xl:  1.5rem;
+    --text-3xl:  1.875rem;
+    --text-4xl:  2.25rem;
+    --text-5xl:  3rem;
+    --text-6xl:  3.75rem;
+    --text-7xl:  4.5rem;
+    --text-8xl:  6rem;
+    --text-9xl:  8rem;
+
+    /* Line heights for font sizes */
+    --text-xs--line-height:   1rem;
+    --text-sm--line-height:   1.25rem;
+    --text-base--line-height: 1.5rem;
+    --text-lg--line-height:   1.75rem;
+    --text-xl--line-height:   1.75rem;
+    --text-2xl--line-height:  2rem;
+    --text-3xl--line-height:  2.25rem;
+    --text-4xl--line-height:  2.5rem;
+    --text-5xl--line-height:  1;
+    --text-6xl--line-height:  1;
+    --text-7xl--line-height:  1;
+    --text-8xl--line-height:  1;
+    --text-9xl--line-height:  1;
+}
+
+/* ── Container — sitewide centering & max-width ─────────────────────── */
 .container {
     width: 100% !important;
     max-width: 1280px !important;
@@ -16,12 +57,11 @@
     box-sizing: border-box !important;
 }
 
-/* Ensure all sections don't accidentally overflow or clip their containers */
+/* ── Global box model ────────────────────────────────────────────────── */
 section, footer, header > div {
     box-sizing: border-box;
 }
 
-/* Prevent any direct child of body from overflowing horizontally */
 body {
     overflow-x: hidden;
 }
@@ -66,11 +106,23 @@ body {
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
+/* ── Targeted CSS Reset ─────────────────────────────────────────────────
+   We reset ONLY block-level structural elements — NOT all elements.
+   The universal * { padding: 0 } reset was stripping card padding and
+   fighting every Tailwind utility class at equal specificity, leaving
+   cards, sections, and containers with zero breathing room.
+──────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -138,16 +190,106 @@ h4,
     transform: scale(1.05);
 }
 
-/* Advanced Interactions */
+/* ── Structural Layout Guardrails ───────────────────────────────────────
+   These rules enforce correct spacing for every recurring layout pattern
+   across the site. They use hardcoded rem values — no calc(var(--spacing))
+   dependency — so they work regardless of Tailwind's cascade state.
+──────────────────────────────────────────────────────────────────────── */
+
+/* Section vertical rhythm */
+section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Override for sections that use a compact style (stats bars, borders) */
+section.py-16,
+section[class*='py-16'] {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+section.py-24,
+section[class*='py-24'] {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+}
+
+section.py-20,
+section[class*='py-20'] {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+/* Hero sections always get generous top padding to account for fixed header */
+section[class*='min-h'] {
+    padding-top: 9rem !important;
+    padding-bottom: 5rem !important;
+}
+
+/* Feature / service cards */
 .hover-card {
-    transition: var(--transition-smooth);
+    padding: 2.5rem;                /* 40px internal breathing room    */
+    border-radius: 1.5rem;          /* 24px — consistent rounded look  */
     border: 1px solid transparent;
+    transition: var(--transition-smooth);
 }
 
 .hover-card:hover {
     border-color: rgba(79, 70, 229, 0.2);
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Card grids — restore gap between cards */
+.grid {
+    gap: 2rem;
+}
+
+/* Specific grid gap overrides */
+.gap-8  { gap: 2rem !important; }
+.gap-10 { gap: 2.5rem !important; }
+.gap-6  { gap: 1.5rem !important; }
+.gap-4  { gap: 1rem !important; }
+
+/* Text section spacing inside cards/content blocks */
+.hover-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.hover-card p {
+    line-height: 1.65;
+    font-size: 0.9rem;
+}
+
+/* Icon box in cards — ensures icon doesn't sit flush at card top edge */
+.hover-card > div:first-child,
+.hover-card [class*='w-14'],
+.hover-card [class*='w-12'],
+.hover-card [class*='w-16'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.875rem;
+    flex-shrink: 0;
+}
+
+
+/* CTA dark banner sections */
+.bg-\[\#111827\],
+[style*='background'][class*='rounded'] {
+    padding: 5rem !important;
+}
+
+@media (max-width: 768px) {
+    .bg-\[\#111827\] {
+        padding: 3rem 1.5rem !important;
+    }
 }
 
 /* Animation Utilities */
