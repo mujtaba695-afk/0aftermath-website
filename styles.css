@@ -1,3 +1,31 @@
+/* ── Layout Foundation Override ──────────────────────────────────────────
+   These rules load AFTER tailwind-build.css and enforce correct layout
+   across every page. The Tailwind v4 build outputs conflicting responsive
+   container breakpoints (max-width: 40rem → 96rem) before a correct
+   1280px override at the end. We reinforce the correct values here so
+   there is zero ambiguity regardless of CSS load order.
+─────────────────────────────────────────────────────────────────────── */
+
+.container {
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure all sections don't accidentally overflow or clip their containers */
+section, footer, header > div {
+    box-sizing: border-box;
+}
+
+/* Prevent any direct child of body from overflowing horizontally */
+body {
+    overflow-x: hidden;
+}
+
 :root {
     /* Color Palette */
     --primary: #4F46E5;
