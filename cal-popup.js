@@ -197,6 +197,6 @@
         // Don't show if already dismissed mid-load
         if (sessionStorage.getItem('cal_popup_dismissed') === '1') return;
         popup.classList.add('oa-visible');
-    }, 60000); // 60,000ms = 1 minute
+    }, 10000); // 10,000ms = 10 seconds
 
 })();
