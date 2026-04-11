@@ -192,10 +192,17 @@
 
     document.getElementById('oa-cal-close').addEventListener('click', dismissPopup);
 
-    // ── Show on page fully loaded ──────────────────────────────────────────
-    window.addEventListener('load', function () {
+    // ── Show on page load (handles both early and late script execution) ──
+    function showPopup() {
         if (sessionStorage.getItem('cal_popup_dismissed') === '1') return;
         popup.classList.add('oa-visible');
-    });
+    }
+
+    if (document.readyState === 'complete') {
+        // Script loaded after page — show immediately
+        showPopup();
+    } else {
+        window.addEventListener('load', showPopup);
+    }
 
 })();
