@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <link rel="stylesheet" href="tailwind-build.css?v=1.0.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Automating Sales: Using AI Agents to Qualify Leads While You Sleep | 0aftermath</title>
+    <meta name="description" content="Learn how AI agents can handle lead qualification, follow-up, and appointment booking 24/7 — so your sales team only speaks to warm, ready-to-buy prospects.">
+    <link rel="canonical" href="https://0aftermath.com/insight-automating-sales.html">
+
+    <meta property="og:title" content="Automating Sales with AI Agents | 0aftermath Insights">
+    <meta property="og:description" content="Using AI agents to qualify leads while you sleep. The tools you need for a 24/7 sales engine.">
+    <meta property="og:image" content="https://0aftermath.com/social-preview.png">
+    <meta property="og:url" content="https://0aftermath.com/insight-automating-sales.html">
+    <meta property="og:type" content="article">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NHCJPPJJ');</script>
+
+    <link rel="stylesheet" href="styles.css?v=6.0.0">
+
+    <style>
+        .article-body h2 { font-size: 1.75rem; font-weight: 700; margin: 2.5rem 0 1rem; color: #111827; }
+        .article-body h3 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #111827; }
+        .article-body p { color: #4B5563; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.0625rem; }
+        .article-body ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+        .article-body ul li { padding: 0.5rem 0 0.5rem 1.75rem; position: relative; color: #4B5563; line-height: 1.7; }
+        .article-body ul li::before { content: "→"; position: absolute; left: 0; color: #F59E0B; font-weight: 700; }
+        .article-body blockquote { border-left: 4px solid #F59E0B; padding: 1rem 1.5rem; background: #FFFBEB; border-radius: 0 0.75rem 0.75rem 0; margin: 2rem 0; }
+        .article-body blockquote p { color: #92400E; font-style: italic; margin: 0; font-weight: 500; }
+        .flow-step { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: white; border: 1px solid #E5E7EB; border-radius: 1rem; margin-bottom: 0.75rem; }
+        .flow-step .step-num { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, #4F46E5, #F59E0B); color: white; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.875rem; }
+        .callout-box { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); border-radius: 1.5rem; padding: 2rem; margin: 2.5rem 0; border: 1px solid #FDE68A; }
+    </style>
+</head>
+
+<body class="antialiased">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHCJPPJJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <a href="index.html"><img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main"></a>
+            <nav class="hidden lg:flex items-center gap-8 font-medium">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-trigger">Services <i data-lucide="chevron-down" class="w-4 h-4 nav-chevron"></i></button>
+                    <div class="nav-dropdown-menu">
+                        <a href="seo.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="search" class="w-5 h-5"></i></div><div class="ndi-text"><p>SEO & Semantic Ranking</p><p>Rank on Google & get cited by AI</p></div></a>
+                        <a href="ads.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="trending-up" class="w-5 h-5"></i></div><div class="ndi-text"><p>Paid Performance</p><p>Stop wasting ad budget</p></div></a>
+                        <a href="automation.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="bot" class="w-5 h-5"></i></div><div class="ndi-text"><p>AI Automation</p><p>Your sales team, running 24/7</p></div></a>
+                        <a href="website-development.html" class="nav-dropdown-item"><div class="ndi-icon bg-accent/10 text-accent"><i data-lucide="code" class="w-5 h-5"></i></div><div class="ndi-text"><p>Website Development</p><p>Websites built to convert</p></div></a>
+                        <a href="social-media.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="users" class="w-5 h-5"></i></div><div class="ndi-text"><p>Social Media Management</p><p>Build your brand on social</p></div></a>
+                        <a href="email-marketing.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="mail" class="w-5 h-5"></i></div><div class="ndi-text"><p>Email Marketing</p><p>42x ROI — highest-return channel</p></div></a>
+                    </div>
+                </div>
+                <a href="index.html#case-studies" class="hover:text-primary transition-colors">Case Studies</a>
+                <a href="index.html#insights" class="hover:text-primary transition-colors">Insights</a>
+                <a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a>
+                <a href="index.html#contact" class="btn-premium text-white px-6 py-2.5 rounded-full shadow-lg">Get Started</a>
+            </nav>
+            <button onclick="openMobileMenu()" class="lg:hidden text-text-main p-2" aria-label="Open Mobile Menu"><i data-lucide="menu" class="w-8 h-8"></i></button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8 overflow-y-auto">
+            <div class="flex items-center justify-between mb-8">
+                <img src="logo.png" alt="0aftermath" class="h-14">
+                <button id="mobile-menu-close" aria-label="Close Mobile Menu" class="p-2 rounded-xl hover:bg-gray-100 transition-colors"><i data-lucide="x" class="w-6 h-6 text-gray-700"></i></button>
+            </div>
+            <nav class="flex flex-col gap-0.5 flex-1" aria-label="Mobile Navigation">
+                <span class="mobile-nav-section">Services</span>
+                <a href="seo.html" class="mobile-nav-link mobile-nav-sub">SEO &amp; Semantic Ranking</a>
+                <a href="ads.html" class="mobile-nav-link mobile-nav-sub">Paid Performance</a>
+                <a href="automation.html" class="mobile-nav-link mobile-nav-sub">AI Automation</a>
+                <a href="website-development.html" class="mobile-nav-link mobile-nav-sub">Website Development</a>
+                <a href="social-media.html" class="mobile-nav-link mobile-nav-sub">Social Media</a>
+                <a href="email-marketing.html" class="mobile-nav-link mobile-nav-sub">Email Marketing</a>
+                <a href="index.html#case-studies" class="mobile-nav-link" onclick="closeMobileMenu()">Case Studies</a>
+                <a href="index.html#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
+                <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
+            </nav>
+            <a href="index.html#contact" onclick="closeMobileMenu()" class="btn-premium text-white px-6 py-4 rounded-full text-center font-bold text-lg mt-8 block shadow-xl">Get Started &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Article Hero -->
+    <section class="relative pt-36 pb-16 bg-bg-alt overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-accent rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            <a href="index.html#insights" class="inline-flex items-center gap-2 text-primary font-semibold mb-8 hover:gap-3 transition-all">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Insights
+            </a>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="px-3 py-1 rounded-full bg-accent/10 text-accent font-bold text-xs tracking-wide uppercase">AI Automation</span>
+                <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-500 font-semibold text-xs">9 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] mb-6">Automating Sales: Using AI Agents to Qualify Leads While You Sleep</h1>
+            <p class="text-xl text-text-muted leading-relaxed max-w-2xl">Research shows that responding to a lead within 5 minutes makes you 21x more likely to qualify them. With AI, your response time is 30 seconds. Every time.</p>
+            <div class="flex items-center gap-4 mt-8 pt-8 border-t border-gray-200">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white font-bold text-sm">0A</div>
+                <div>
+                    <p class="font-bold text-sm">0aftermath Editorial Team</p>
+                    <p class="text-xs text-text-muted">Published April 2026 · Dubai, UAE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div style="display:flex; gap:3.5rem; max-width:72rem; margin:0 auto; align-items:flex-start; flex-wrap:wrap;">
+                <article class="article-body" style="flex:1 1 600px; min-width:0;">
+
+                    <p>It's 2:14am in Dubai. A real estate developer running ads on Meta sees a new lead notification. By the time their sales team arrives at the office at 9am, that lead — who was browsing properties with genuine purchase intent in the middle of the night — has already spoken to two other agencies, one of whom responded within minutes.</p>
+
+                    <p>This scenario plays out across every industry, every day. The businesses that win are not necessarily the ones with the best product or the best ads. They're the ones that respond first, qualify fastest, and book the call before the competition wakes up.</p>
+
+                    <p>AI makes this possible for businesses of any size.</p>
+
+                    <h2>What "Sales Automation" Actually Means in 2026</h2>
+
+                    <p>Sales automation has existed in some form for decades — email autoresponders, CRM sequences, basic chatbots. But what's changed dramatically is the intelligence behind the automation. The difference between a 2019 chatbot and a 2026 AI agent is significant enough that they shouldn't share a name.</p>
+
+                    <p>Modern AI agents can:</p>
+                    <ul>
+                        <li>Have a natural, two-way conversation in any language — not a scripted "press 1 for X" flow</li>
+                        <li>Understand context and remember previous messages in the same conversation</li>
+                        <li>Ask qualifying questions based on what the prospect has already said</li>
+                        <li>Detect urgency and intent from language cues (someone who says "we need this by Q3" versus "just looking")</li>
+                        <li>Integrate with your calendar and book appointments natively</li>
+                        <li>Escalate to a human when the situation genuinely requires one</li>
+                    </ul>
+
+                    <blockquote>
+                        <p>"Within 3 weeks of deploying the AI lead agent, we went from a 4-hour average response time to under 60 seconds. Our qualified meeting rate increased 3x in the first month." — B2B client, Dubai</p>
+                    </blockquote>
+
+                    <h2>The 5-Minute Rule (And Why AI Is the Only Way to Consistently Win It)</h2>
+
+                    <p>A famous study by Harvard Business Review found that companies that respond to leads within 5 minutes are 21 times more likely to qualify that lead compared to companies that respond after 30 minutes. The probability of qualifying a lead drops by 80% after the first 5 minutes.</p>
+
+                    <p>Think about what that means in practice. If you receive leads during working hours and your team responds in 10–20 minutes (which is fast for a human), you're already operating well past the peak qualification window. If leads come in on weekends, evenings, or during busy periods, the gap is hours — not minutes.</p>
+
+                    <p>AI eliminates this variable entirely. Every lead gets an intelligent, personalised response within 30–60 seconds, regardless of time, day, or volume.</p>
+
+                    <h2>The AI Sales Flow: How It Works End-to-End</h2>
+
+                    <p>Here's a typical AI-powered lead qualification flow we build for clients:</p>
+
+                    <div class="my-6">
+                        <div class="flow-step">
+                            <div class="step-num">1</div>
+                            <div>
+                                <p style="margin:0; font-weight:700;">Lead submits a form or messages on WhatsApp/Instagram</p>
+                                <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#6B7280;">The trigger fires within seconds. The AI receives all form data or the incoming message.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-num">2</div>
+                            <div>
+                                <p style="margin:0; font-weight:700;">AI sends a personalised greeting</p>
+                                <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#6B7280;">Not "Thanks for your inquiry" — but a response that references what they asked about, in a warm, brand-appropriate voice.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-num">3</div>
+                            <div>
+                                <p style="margin:0; font-weight:700;">Qualification questions</p>
+                                <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#6B7280;">The AI asks about budget, timeline, and decision criteria — conversationally, not as a form. It adapts based on responses.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-num">4</div>
+                            <div>
+                                <p style="margin:0; font-weight:700;">Lead scoring and routing</p>
+                                <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#6B7280;">Based on answers, the AI scores the lead as Hot, Warm, or Cold. Hot leads get routed to a senior salesperson immediately. Warm leads enter a nurturing sequence. Cold leads get an educational email series.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-num">5</div>
+                            <div>
+                                <p style="margin:0; font-weight:700;">Appointment booking (for hot leads)</p>
+                                <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#6B7280;">The AI surfaces available calendar slots, the prospect picks a time, and a confirmation is sent automatically — with a reminder sequence pre-scheduled.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-num">6</div>
+                            <div>
+                                <p style="margin:0; font-weight:700;">CRM update</p>
+                                <p style="margin:0.25rem 0 0; font-size:0.875rem; color:#6B7280;">Every interaction is logged in HubSpot or your CRM. The salesperson arrives at the call with a full brief: what the lead asked, their budget, their timeline, and what was discussed.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>The Tools That Power This System</h2>
+
+                    <p>You don't need one tool — you need a connected stack. Here's what we use to build AI sales systems for our clients:</p>
+
+                    <h3>Conversation AI</h3>
+                    <p>We build conversational agents using Claude AI (Anthropic) or GPT-4, integrated via API into WhatsApp Business, Instagram DMs, web chat, and email. These models are what make the conversations feel natural rather than scripted.</p>
+
+                    <h3>Workflow Orchestration</h3>
+                    <p>Zapier and Make.com connect all the moving parts — the form submission triggers the conversation, the AI's response triggers the CRM update, the booking triggers the reminder sequence. Without workflow automation, you have isolated tools instead of a system.</p>
+
+                    <h3>CRM: HubSpot or GoHighLevel</h3>
+                    <p>Your CRM is where all lead data lives. We configure it so the AI can read from and write to it — meaning conversations are informed by history, and every interaction is automatically logged without human data entry.</p>
+
+                    <h3>Calendar Integration</h3>
+                    <p>Cal.com or Calendly for direct appointment booking, connected to the AI flow. The prospect books in the same conversation — no back-and-forth emails.</p>
+
+                    <div class="callout-box">
+                        <h3 style="margin-top:0; color:#92400E;">What This Is Not</h3>
+                        <p style="color:#374151; margin-bottom:0;">AI sales automation is not about replacing your sales team. It's about ensuring your team only spends time on qualified, warm conversations — not chasing cold leads, inputting data, or playing phone tag. The businesses implementing this effectively are seeing 3–5x improvements in their sales team's efficiency.</p>
+                    </div>
+
+                    <h2>The Cost of Inaction</h2>
+
+                    <p>Every month without a lead qualification system, you're losing leads to faster competitors. The economics are stark: if you generate 200 leads per month and your average deal is AED 15,000, improving your qualification rate from 10% to 20% is an additional AED 300,000 per month in pipeline — from the same marketing spend.</p>
+
+                    <p>The system to achieve this costs a fraction of that. The question isn't whether you can afford to implement it. It's whether you can afford not to.</p>
+
+                    <h2>Getting Started: The Minimum Viable Sales Automation</h2>
+
+                    <p>You don't need to build the full system at once. Here's the order we recommend:</p>
+                    <ul>
+                        <li><strong>Step 1:</strong> Instant lead notification + AI acknowledgment message (can be set up in days)</li>
+                        <li><strong>Step 2:</strong> Qualify the top 3–5 criteria your team always asks about, scripted into an AI flow</li>
+                        <li><strong>Step 3:</strong> Calendar integration for hot leads</li>
+                        <li><strong>Step 4:</strong> CRM auto-logging and lead scoring</li>
+                        <li><strong>Step 5:</strong> Nurture sequences for warm/cold leads</li>
+                    </ul>
+
+                    <p>Each step compounds the value of the previous one. Most clients see a measurable improvement in qualified meetings within the first two weeks of implementing even the basic version.</p>
+
+                </article>
+
+                <!-- Sidebar -->
+                <aside style="width:22rem; flex-shrink:0;">
+                    <div style="position:sticky; top:7rem; display:flex; flex-direction:column; gap:1.5rem;">
+                        <div class="bg-gradient-to-br from-accent to-primary p-8 rounded-3xl text-white">
+                            <h3 class="text-xl font-bold mb-3">Audit Your Lead Response Time</h3>
+                            <p class="text-white/80 text-sm mb-6 leading-relaxed">We'll map your current lead flow and show you exactly where leads are falling through — then build the automation to fix it.</p>
+                            <a href="automation.html" class="block w-full text-center bg-white text-accent font-bold py-3 rounded-xl hover:bg-gray-50 transition-colors">See AI Automation</a>
+                        </div>
+                        <div class="bg-bg-alt p-8 rounded-3xl">
+                            <h4 class="font-bold mb-5 text-sm uppercase tracking-widest text-text-muted">More Insights</h4>
+                            <div class="space-y-4">
+                                <a href="insight-search-intent.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">01</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">Search Intent vs. Keywords</p>
+                                        <p class="text-xs text-text-muted">Why your blog posts aren't ranking</p>
+                                    </div>
+                                </a>
+                                <a href="insight-site-speed.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">02</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">Site Speed = Revenue</p>
+                                        <p class="text-xs text-text-muted">How a 1-second delay costs you 7%</p>
+                                    </div>
+                                </a>
+                                <a href="insight-landing-page-2026.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">04</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">The Perfect 2026 Landing Page</p>
+                                        <p class="text-xs text-text-muted">Anatomy of a page that converts at 10%+</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="automation.html" class="flex items-center gap-4 p-6 bg-white border border-gray-200 rounded-2xl hover:border-accent/40 hover:shadow-lg transition-all group">
+                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="bot" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-bold group-hover:text-accent transition-colors">AI Automation</p>
+                                <p class="text-sm text-text-muted">Your sales team, running 24/7</p>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-text-muted group-hover:text-accent transition-colors"></i>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-20 bg-bg-alt">
+        <div class="container mx-auto px-6">
+            <div class="bg-[#111827] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden text-center">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute -top-20 -left-20 w-80 h-80 bg-accent rounded-full blur-[100px]"></div>
+                    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary rounded-full blur-[100px]"></div>
+                </div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to build your 24/7 sales engine?</h2>
+                    <p class="text-xl text-white/70 mb-10 leading-relaxed">We'll audit your lead flow, identify where you're losing prospects, and build the AI system that qualifies while you sleep.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="automation.html" class="btn-accent text-text-main font-bold px-12 py-5 rounded-full text-lg inline-block">Explore AI Automation</a>
+                        <a href="https://cal.com/0aftermath/30min" target="_blank" rel="noopener" class="bg-white/10 border border-white/20 text-white font-bold px-12 py-5 rounded-full text-lg inline-block hover:bg-white/20 transition-colors">Book a Strategy Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html"><img src="logo.png" alt="0aftermath - AI Marketing Agency" class="h-16 mb-6 logo-main"></a>
+                    <p class="text-text-muted max-w-sm">We're on a mission to simplify digital marketing for small businesses through the power of AI automation and performance engineering.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Services</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li><a href="seo.html" class="hover:text-primary transition-colors">SEO &amp; Semantic Ranking</a></li>
+                        <li><a href="ads.html" class="hover:text-primary transition-colors">Paid Performance</a></li>
+                        <li><a href="automation.html" class="hover:text-primary transition-colors">AI Automation</a></li>
+                        <li><a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Contact</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li>Dubai, UAE</li>
+                        <li><a href="mailto:hello@0aftermath.com" class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
+                        <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000 0000</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-text-muted">© 2026 0aftermath. Built for Performance.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/company/0aftermath/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-primary transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@0.469.0" defer></script>
+    <script src="script.js" defer></script>
+    <script src="cal-popup.js?v=2"></script>
+</body>
+</html>

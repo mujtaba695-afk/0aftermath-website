@@ -378,7 +378,8 @@
                         <p id="form-subtitle" class="text-text-muted mb-8">Ready to scale? Let our AI analyze your
                             current strategy.</p>
 
-                        <form action="https://formspree.io/f/xjknogol" method="POST" class="space-y-4">
+                        <!-- Form State -->
+                        <form id="hero-contact-form" action="https://formspree.io/f/xjknogol" method="POST" class="space-y-4">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="contact-name" class="sr-only">Full Name</label>
@@ -403,11 +404,34 @@
                                 <option value="automation">AI Workflow Audit</option>
                                 <option value="strategy">Brand Strategy</option>
                             </select>
-                            <button type="submit"
+                            <button type="submit" id="hero-form-submit"
                                 class="w-full btn-premium text-white font-bold py-5 rounded-xl text-lg shadow-xl hover:scale-[1.02]">
                                 Start My Audit Now
                             </button>
                         </form>
+                        <!-- Thank You State (hidden by default) -->
+                        <div id="hero-form-thanks" class="hidden text-center py-6">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Request Received!</h4>
+                            <p class="text-text-muted mb-6 text-sm leading-relaxed">We'll review your details and get back to you within <strong>2 business hours</strong>. No spam. No hard sell.</p>
+                            <p class="text-sm font-semibold text-text-muted mb-3">Want to skip the wait?</p>
+                            <a href="https://cal.com/0aftermath/30min" target="_blank" rel="noopener"
+                                class="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors text-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                Book a 30-Min Strategy Call Now
+                            </a>
+                        </div>
+                        <script>
+                        document.getElementById('hero-contact-form').addEventListener('submit', function(e) {
+                            var form = this;
+                            setTimeout(function() {
+                                form.style.display = 'none';
+                                document.getElementById('hero-form-thanks').classList.remove('hidden');
+                            }, 800);
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -604,7 +628,7 @@
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all">
-                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: Search Intent vs. Keywords">
+                    <a href="insight-search-intent.html" class="flex gap-6 w-full" aria-label="Read: Search Intent vs. Keywords">
                         <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">01</div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Search Intent vs.
@@ -616,7 +640,7 @@
                 </article>
                 <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
                     style="transition-delay: 100ms;">
-                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: Site Speed = Revenue">
+                    <a href="insight-site-speed.html" class="flex gap-6 w-full" aria-label="Read: Site Speed = Revenue">
                         <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">02</div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Site Speed =
@@ -628,7 +652,7 @@
                 </article>
                 <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
                     style="transition-delay: 200ms;">
-                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: Automating Sales">
+                    <a href="insight-automating-sales.html" class="flex gap-6 w-full" aria-label="Read: Automating Sales">
                         <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">03</div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Automating Sales
@@ -640,7 +664,7 @@
                 </article>
                 <article class="group p-6 rounded-2xl hover:bg-bg-alt flex gap-6 reveal transition-all"
                     style="transition-delay: 300ms;">
-                    <a href="roi-calculator.html" class="flex gap-6 w-full" aria-label="Read: The Perfect 2026 Landing Page">
+                    <a href="insight-landing-page-2026.html" class="flex gap-6 w-full" aria-label="Read: The Perfect 2026 Landing Page">
                         <div class="text-4xl font-bold text-gray-200 group-hover:text-primary transition-colors">04</div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">The Perfect 2026
@@ -970,10 +994,6 @@
                     <a href="https://www.linkedin.com/company/0aftermath/?viewAsMember=true" target="_blank"
                         rel="noopener noreferrer" class="text-text-muted hover:text-primary transition-colors"><i
                             data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    <a href="#" class="text-text-muted hover:text-secondary transition-colors"><i data-lucide="twitter"
-                            class="w-5 h-5"></i></a>
-                    <a href="#" class="text-text-muted hover:text-accent transition-colors"><i data-lucide="instagram"
-                            class="w-5 h-5"></i></a>
                 </div>
             </div>
         </div>

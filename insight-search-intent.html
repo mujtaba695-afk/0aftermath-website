@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <link rel="stylesheet" href="tailwind-build.css?v=1.0.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Search Intent vs. Keywords: Why Your Blog Posts Aren't Ranking | 0aftermath</title>
+    <meta name="description" content="Keyword density is dead. Learn how search intent and semantic relevance have replaced keyword stuffing as the #1 ranking factor in 2026 — and how to fix your content strategy.">
+    <link rel="canonical" href="https://0aftermath.com/insight-search-intent.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Search Intent vs. Keywords | 0aftermath Insights">
+    <meta property="og:description" content="Why your blog posts aren't ranking despite high keyword density — and the shift to semantic relevance.">
+    <meta property="og:image" content="https://0aftermath.com/social-preview.png">
+    <meta property="og:url" content="https://0aftermath.com/insight-search-intent.html">
+    <meta property="og:type" content="article">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NHCJPPJJ');</script>
+
+    <link rel="stylesheet" href="styles.css?v=6.0.0">
+
+    <style>
+        .article-body h2 { font-size: 1.75rem; font-weight: 700; margin: 2.5rem 0 1rem; color: #111827; }
+        .article-body h3 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #111827; }
+        .article-body p { color: #4B5563; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.0625rem; }
+        .article-body ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+        .article-body ul li { padding: 0.5rem 0 0.5rem 1.75rem; position: relative; color: #4B5563; line-height: 1.7; }
+        .article-body ul li::before { content: "→"; position: absolute; left: 0; color: #4F46E5; font-weight: 700; }
+        .article-body blockquote { border-left: 4px solid #4F46E5; padding: 1rem 1.5rem; background: #F5F3FF; border-radius: 0 0.75rem 0.75rem 0; margin: 2rem 0; }
+        .article-body blockquote p { color: #3730A3; font-style: italic; margin: 0; font-weight: 500; }
+        .callout-box { background: linear-gradient(135deg, #EEF2FF, #E0F2FE); border-radius: 1.5rem; padding: 2rem; margin: 2.5rem 0; border: 1px solid #C7D2FE; }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHCJPPJJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main">
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 font-medium">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-trigger">Services <i data-lucide="chevron-down" class="w-4 h-4 nav-chevron"></i></button>
+                    <div class="nav-dropdown-menu">
+                        <a href="seo.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="search" class="w-5 h-5"></i></div><div class="ndi-text"><p>SEO & Semantic Ranking</p><p>Rank on Google & get cited by AI</p></div></a>
+                        <a href="ads.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="trending-up" class="w-5 h-5"></i></div><div class="ndi-text"><p>Paid Performance</p><p>Stop wasting ad budget</p></div></a>
+                        <a href="automation.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="bot" class="w-5 h-5"></i></div><div class="ndi-text"><p>AI Automation</p><p>Your sales team, running 24/7</p></div></a>
+                        <a href="website-development.html" class="nav-dropdown-item"><div class="ndi-icon bg-accent/10 text-accent"><i data-lucide="code" class="w-5 h-5"></i></div><div class="ndi-text"><p>Website Development</p><p>Websites built to convert</p></div></a>
+                        <a href="social-media.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="users" class="w-5 h-5"></i></div><div class="ndi-text"><p>Social Media Management</p><p>Build your brand on social</p></div></a>
+                        <a href="email-marketing.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="mail" class="w-5 h-5"></i></div><div class="ndi-text"><p>Email Marketing</p><p>42x ROI — highest-return channel</p></div></a>
+                    </div>
+                </div>
+                <a href="index.html#case-studies" class="hover:text-primary transition-colors">Case Studies</a>
+                <a href="index.html#insights" class="hover:text-primary transition-colors">Insights</a>
+                <a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a>
+                <a href="index.html#contact" class="btn-premium text-white px-6 py-2.5 rounded-full shadow-lg">Get Started</a>
+            </nav>
+            <button onclick="openMobileMenu()" class="lg:hidden text-text-main p-2" aria-label="Open Mobile Menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8 overflow-y-auto">
+            <div class="flex items-center justify-between mb-8">
+                <img src="logo.png" alt="0aftermath" class="h-14">
+                <button id="mobile-menu-close" aria-label="Close Mobile Menu" class="p-2 rounded-xl hover:bg-gray-100 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-gray-700"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-0.5 flex-1" aria-label="Mobile Navigation">
+                <span class="mobile-nav-section">Services</span>
+                <a href="seo.html" class="mobile-nav-link mobile-nav-sub">SEO &amp; Semantic Ranking</a>
+                <a href="ads.html" class="mobile-nav-link mobile-nav-sub">Paid Performance</a>
+                <a href="automation.html" class="mobile-nav-link mobile-nav-sub">AI Automation</a>
+                <a href="website-development.html" class="mobile-nav-link mobile-nav-sub">Website Development</a>
+                <a href="social-media.html" class="mobile-nav-link mobile-nav-sub">Social Media</a>
+                <a href="email-marketing.html" class="mobile-nav-link mobile-nav-sub">Email Marketing</a>
+                <a href="index.html#case-studies" class="mobile-nav-link" onclick="closeMobileMenu()">Case Studies</a>
+                <a href="index.html#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
+                <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
+            </nav>
+            <a href="index.html#contact" onclick="closeMobileMenu()" class="btn-premium text-white px-6 py-4 rounded-full text-center font-bold text-lg mt-8 block shadow-xl">Get Started &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Article Hero -->
+    <section class="relative pt-36 pb-16 bg-bg-alt overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            <a href="index.html#insights" class="inline-flex items-center gap-2 text-primary font-semibold mb-8 hover:gap-3 transition-all">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Insights
+            </a>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-wide uppercase">SEO</span>
+                <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-500 font-semibold text-xs">8 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] mb-6">Search Intent vs. Keywords: Why Your Blog Posts Aren't Ranking</h1>
+            <p class="text-xl text-text-muted leading-relaxed max-w-2xl">Keyword density is dead. The shift to semantic relevance is the single biggest change in SEO over the last three years — and most businesses haven't adapted yet.</p>
+            <div class="flex items-center gap-4 mt-8 pt-8 border-t border-gray-200">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">0A</div>
+                <div>
+                    <p class="font-bold text-sm">0aftermath Editorial Team</p>
+                    <p class="text-xs text-text-muted">Published April 2026 · Dubai, UAE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div style="display:flex; gap:4rem; max-width:72rem; margin:0 auto; align-items:flex-start; flex-wrap:wrap;">
+
+                <!-- Main Content -->
+                <article class="article-body" style="flex:1 1 0%; min-width:0;">
+
+                    <p>Picture this: You spend three hours writing a 2,000-word blog post packed with your target keyword. You mention it in the title, the subheadings, the first paragraph, and every 200 words throughout the body. You publish. You wait. Nothing happens.</p>
+
+                    <p>Six months later, a competitor with a shorter, less "keyword-optimised" article outranks you for the same term. What did they do differently?</p>
+
+                    <p>They answered the question better.</p>
+
+                    <h2>The Keyword Era Is Over (And Has Been For a While)</h2>
+
+                    <p>Google's Hummingbird update back in 2013 began the shift away from keyword matching. BERT in 2019 accelerated it. By 2026, Google's systems don't just look for words — they understand <em>meaning</em>, <em>context</em>, and <em>intent</em>.</p>
+
+                    <p>When someone types "best restaurant near me open now," Google isn't pattern-matching the word "restaurant." It's identifying that this user has <strong>navigational and transactional intent</strong> — they want location-based results and they want them immediately. A blog post about the history of fine dining isn't going to rank for that query, no matter how many times the word "restaurant" appears in it.</p>
+
+                    <blockquote>
+                        <p>"In 2026, ranking is not about how often you say a word. It's about how completely you satisfy the intent behind a search."</p>
+                    </blockquote>
+
+                    <h2>The Four Types of Search Intent (And Why They Matter)</h2>
+
+                    <p>Every search query has an underlying intent. Getting this wrong is the most common reason content fails to rank.</p>
+
+                    <h3>1. Informational Intent</h3>
+                    <p>The user wants to learn something. Queries like "how does email marketing work" or "what is CAC in marketing." For these, long-form educational content performs best — comprehensive guides, explainers, and FAQs that fully cover the topic.</p>
+
+                    <h3>2. Navigational Intent</h3>
+                    <p>The user wants to reach a specific place — a brand, a website, or a tool. "0aftermath marketing agency" or "HubSpot login" are navigational. You can't really rank for a competitor's branded terms, but you <em>can</em> dominate your own.</p>
+
+                    <h3>3. Commercial Intent</h3>
+                    <p>The user is researching before making a decision. "Best AI marketing agency Dubai" or "SEO agency vs in-house team." These searches deserve comparison-style content: pros and cons, case studies, feature breakdowns.</p>
+
+                    <h3>4. Transactional Intent</h3>
+                    <p>The user is ready to act. "Hire AI marketing agency" or "SEO audit free." These high-intent queries need conversion-optimised landing pages — not blog posts.</p>
+
+                    <div class="callout-box">
+                        <h3 style="margin-top:0; color: #3730A3;">The Fatal Mistake: Intent Mismatch</h3>
+                        <p style="margin-bottom:0; color: #374151;">The most common content failure we diagnose in audits is <strong>intent mismatch</strong>. A business creates a blog post for a transactional keyword. Or they build a product page for an informational query. Google sees the mismatch and ranks the content that actually satisfies the user's intent instead.</p>
+                    </div>
+
+                    <h2>Semantic Relevance: Covering a Topic, Not Just a Keyword</h2>
+
+                    <p>Here's where most businesses miss the biggest opportunity. Google doesn't just assess whether your page mentions a keyword — it evaluates how comprehensively your page covers the <strong>topic</strong> around that keyword.</p>
+
+                    <p>If you're trying to rank for "email marketing for e-commerce," Google will expect your content to also cover related concepts like abandoned cart sequences, list segmentation, open rate optimisation, and A/B testing subject lines. Not because of co-occurrence tricks, but because a comprehensive resource on email marketing for e-commerce would naturally cover these things.</p>
+
+                    <p>This is why AI tools like ChatGPT and Perplexity cite certain sources over others. They're programmed to surface the most authoritative, complete answer to a question. If your content is shallow, AI won't cite you — even if you rank on Google.</p>
+
+                    <h2>How to Audit Your Existing Content for Intent</h2>
+
+                    <p>Here's a practical three-step process to identify why your existing posts aren't ranking:</p>
+
+                    <ul>
+                        <li><strong>Google your target keyword</strong> and study the top 3 results. What format are they? Articles, lists, landing pages, videos? This tells you what Google believes best satisfies the intent.</li>
+                        <li><strong>Look at the "People Also Ask" section</strong> — every question there is a subtopic you could be covering. If your content doesn't answer those questions, it's incomplete in Google's eyes.</li>
+                        <li><strong>Check your content's word count vs. the top results.</strong> If the top 3 results average 2,800 words and yours is 600, you're missing depth. Add it.</li>
+                        <li><strong>Identify the primary intent</strong> of your target keyword. Then ask: does your page format match? A transactional keyword needs a landing page, not a blog article.</li>
+                    </ul>
+
+                    <h2>What to Do About It: The Intent-First Content Process</h2>
+
+                    <p>Rather than starting with a keyword and writing content around it, start with the intent and work backwards.</p>
+
+                    <p>Before writing a single word, answer these questions:</p>
+
+                    <ul>
+                        <li>Why is someone searching this? What do they want to know, find, or do?</li>
+                        <li>What format would best serve that intent? (Guide, landing page, comparison, tool, FAQ)</li>
+                        <li>What related questions would a satisfied reader also have answered?</li>
+                        <li>What's the one thing I want them to do after reading this?</li>
+                    </ul>
+
+                    <p>This process consistently outperforms keyword-first content strategies. At 0aftermath, every piece of content we create for clients starts with this intent mapping exercise — and it's why our content tends to rank faster and hold rankings longer than traditional approaches.</p>
+
+                    <h2>The AI Citation Bonus</h2>
+
+                    <p>There's an additional reason to care about semantic depth in 2026: AI-generated answers. When someone asks ChatGPT or Perplexity a question related to your industry, they'll cite sources that are comprehensive, clearly structured, and semantically complete. Shallow, keyword-stuffed content almost never appears in AI answers.</p>
+
+                    <p>If you build content that genuinely and completely covers a topic — with clear headings, concise summaries, FAQ sections, and structured data — you're not just improving your SEO. You're training AI tools to cite you as an authority. That's free, compounding brand exposure that no ad budget can replicate.</p>
+
+                    <blockquote>
+                        <p>"We started showing up in ChatGPT answers for our service category. Three new clients last quarter told us they found us through an AI recommendation." — A 0aftermath SEO client, Q1 2026</p>
+                    </blockquote>
+
+                    <h2>The Bottom Line</h2>
+
+                    <p>Stop counting keywords. Start mapping intent. For every piece of content you create or update, ask: <em>What does someone searching this actually want, and does my page fully deliver it?</em></p>
+
+                    <p>If the answer is yes — if your content is the best possible resource for that query — you'll rank. And increasingly, you'll get cited by AI too.</p>
+
+                    <p>If you're not sure where your content is falling short, a professional SEO audit will show you exactly which posts have intent mismatches, which are missing semantic depth, and which are ready to rank with minor optimisations.</p>
+
+                </article>
+
+                <!-- Sidebar -->
+                <aside style="width:22rem; flex-shrink:0;">
+                    <div style="position:sticky; top:7rem; display:flex; flex-direction:column; gap:1.5rem;">
+                        <!-- CTA Card -->
+                        <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-3xl text-white">
+                            <h3 class="text-xl font-bold mb-3">Is Your Content Missing Intent?</h3>
+                            <p class="text-white/80 text-sm mb-6 leading-relaxed">Get a free SEO audit. We'll identify every page with an intent mismatch and show you exactly how to fix it.</p>
+                            <a href="index.html#contact" class="block w-full text-center bg-white text-primary font-bold py-3 rounded-xl hover:bg-gray-50 transition-colors">Get Free SEO Audit</a>
+                        </div>
+
+                        <!-- Related Articles -->
+                        <div class="bg-bg-alt p-8 rounded-3xl">
+                            <h4 class="font-bold mb-5 text-sm uppercase tracking-widest text-text-muted">More Insights</h4>
+                            <div class="space-y-4">
+                                <a href="insight-site-speed.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">02</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">Site Speed = Revenue</p>
+                                        <p class="text-xs text-text-muted">How a 1-second delay costs you 7% in conversions</p>
+                                    </div>
+                                </a>
+                                <a href="insight-automating-sales.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">03</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">Automating Sales</p>
+                                        <p class="text-xs text-text-muted">AI agents that qualify leads 24/7</p>
+                                    </div>
+                                </a>
+                                <a href="insight-landing-page-2026.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">04</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">The Perfect 2026 Landing Page</p>
+                                        <p class="text-xs text-text-muted">Anatomy of a page that converts at 10%+</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Related Service -->
+                        <a href="seo.html" class="flex items-center gap-4 p-6 bg-white border border-gray-200 rounded-2xl hover:border-primary/40 hover:shadow-lg transition-all group">
+                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="search" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-bold group-hover:text-primary transition-colors">SEO & Semantic Ranking</p>
+                                <p class="text-sm text-text-muted">Rank on Google & get cited by AI</p>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-text-muted group-hover:text-primary transition-colors"></i>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-20 bg-bg-alt">
+        <div class="container mx-auto px-6">
+            <div class="bg-[#111827] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden text-center">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute -top-20 -left-20 w-80 h-80 bg-accent rounded-full blur-[100px]"></div>
+                    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary rounded-full blur-[100px]"></div>
+                </div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to rank — and get cited by AI?</h2>
+                    <p class="text-xl text-white/70 mb-10 leading-relaxed">Let us audit your current content strategy. We'll identify what's holding you back and show you the fastest path to rankings that last.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="index.html#contact" class="btn-accent text-text-main font-bold px-12 py-5 rounded-full text-lg inline-block">Get Free SEO Audit</a>
+                        <a href="https://cal.com/0aftermath/30min" target="_blank" rel="noopener" class="bg-white/10 border border-white/20 text-white font-bold px-12 py-5 rounded-full text-lg inline-block hover:bg-white/20 transition-colors">Book a Strategy Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html"><img src="logo.png" alt="0aftermath - AI Marketing Agency" class="h-16 mb-6 logo-main"></a>
+                    <p class="text-text-muted max-w-sm">We're on a mission to simplify digital marketing for small businesses through the power of AI automation and performance engineering.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Services</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li><a href="seo.html" class="hover:text-primary transition-colors">SEO & Semantic Ranking</a></li>
+                        <li><a href="ads.html" class="hover:text-primary transition-colors">Paid Performance</a></li>
+                        <li><a href="automation.html" class="hover:text-primary transition-colors">AI Automation</a></li>
+                        <li><a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Contact</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li>Dubai, UAE</li>
+                        <li><a href="mailto:hello@0aftermath.com" class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
+                        <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000 0000</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-text-muted">© 2026 0aftermath. Built for Performance.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/company/0aftermath/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-primary transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@0.469.0" defer></script>
+    <script src="script.js" defer></script>
+    <script src="cal-popup.js?v=2"></script>
+</body>
+
+</html>

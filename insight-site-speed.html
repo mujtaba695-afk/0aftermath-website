@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <link rel="stylesheet" href="tailwind-build.css?v=1.0.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Site Speed = Revenue: How a 1-Second Delay Costs You 7% in Conversions | 0aftermath</title>
+    <meta name="description" content="A technical breakdown of how page speed directly impacts conversions and revenue — and how we consistently achieve 100 on Google Lighthouse for our clients.">
+    <link rel="canonical" href="https://0aftermath.com/insight-site-speed.html">
+
+    <meta property="og:title" content="Site Speed = Revenue | 0aftermath Insights">
+    <meta property="og:description" content="How a 1-second delay costs you 7% in conversions. How we hit 100 on Lighthouse.">
+    <meta property="og:image" content="https://0aftermath.com/social-preview.png">
+    <meta property="og:url" content="https://0aftermath.com/insight-site-speed.html">
+    <meta property="og:type" content="article">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NHCJPPJJ');</script>
+
+    <link rel="stylesheet" href="styles.css?v=6.0.0">
+
+    <style>
+        .article-body h2 { font-size: 1.75rem; font-weight: 700; margin: 2.5rem 0 1rem; color: #111827; }
+        .article-body h3 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #111827; }
+        .article-body p { color: #4B5563; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.0625rem; }
+        .article-body ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+        .article-body ul li { padding: 0.5rem 0 0.5rem 1.75rem; position: relative; color: #4B5563; line-height: 1.7; }
+        .article-body ul li::before { content: "→"; position: absolute; left: 0; color: #06B6D4; font-weight: 700; }
+        .article-body blockquote { border-left: 4px solid #06B6D4; padding: 1rem 1.5rem; background: #E0F7FA; border-radius: 0 0.75rem 0.75rem 0; margin: 2rem 0; }
+        .article-body blockquote p { color: #0e7490; font-style: italic; margin: 0; font-weight: 500; }
+        .stat-card { background: white; border: 2px solid #E5E7EB; border-radius: 1rem; padding: 1.5rem; text-align: center; }
+        .stat-card .number { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #06B6D4, #4F46E5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .callout-box { background: linear-gradient(135deg, #E0F2FE, #EFF6FF); border-radius: 1.5rem; padding: 2rem; margin: 2.5rem 0; border: 1px solid #BAE6FD; }
+    </style>
+</head>
+
+<body class="antialiased">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHCJPPJJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="0aftermath" class="h-16 md:h-20 transition-all duration-300 logo-main">
+            </a>
+            <nav class="hidden lg:flex items-center gap-8 font-medium">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-trigger">Services <i data-lucide="chevron-down" class="w-4 h-4 nav-chevron"></i></button>
+                    <div class="nav-dropdown-menu">
+                        <a href="seo.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="search" class="w-5 h-5"></i></div><div class="ndi-text"><p>SEO & Semantic Ranking</p><p>Rank on Google & get cited by AI</p></div></a>
+                        <a href="ads.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="trending-up" class="w-5 h-5"></i></div><div class="ndi-text"><p>Paid Performance</p><p>Stop wasting ad budget</p></div></a>
+                        <a href="automation.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="bot" class="w-5 h-5"></i></div><div class="ndi-text"><p>AI Automation</p><p>Your sales team, running 24/7</p></div></a>
+                        <a href="website-development.html" class="nav-dropdown-item"><div class="ndi-icon bg-accent/10 text-accent"><i data-lucide="code" class="w-5 h-5"></i></div><div class="ndi-text"><p>Website Development</p><p>Websites built to convert</p></div></a>
+                        <a href="social-media.html" class="nav-dropdown-item"><div class="ndi-icon bg-primary/10 text-primary"><i data-lucide="users" class="w-5 h-5"></i></div><div class="ndi-text"><p>Social Media Management</p><p>Build your brand on social</p></div></a>
+                        <a href="email-marketing.html" class="nav-dropdown-item"><div class="ndi-icon bg-secondary/10 text-secondary"><i data-lucide="mail" class="w-5 h-5"></i></div><div class="ndi-text"><p>Email Marketing</p><p>42x ROI — highest-return channel</p></div></a>
+                    </div>
+                </div>
+                <a href="index.html#case-studies" class="hover:text-primary transition-colors">Case Studies</a>
+                <a href="index.html#insights" class="hover:text-primary transition-colors">Insights</a>
+                <a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a>
+                <a href="index.html#contact" class="btn-premium text-white px-6 py-2.5 rounded-full shadow-lg">Get Started</a>
+            </nav>
+            <button onclick="openMobileMenu()" class="lg:hidden text-text-main p-2" aria-label="Open Mobile Menu">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="mobile-menu-panel absolute top-0 right-0 h-full w-80 bg-white shadow-2xl flex flex-col p-8 overflow-y-auto">
+            <div class="flex items-center justify-between mb-8">
+                <img src="logo.png" alt="0aftermath" class="h-14">
+                <button id="mobile-menu-close" aria-label="Close Mobile Menu" class="p-2 rounded-xl hover:bg-gray-100 transition-colors"><i data-lucide="x" class="w-6 h-6 text-gray-700"></i></button>
+            </div>
+            <nav class="flex flex-col gap-0.5 flex-1" aria-label="Mobile Navigation">
+                <span class="mobile-nav-section">Services</span>
+                <a href="seo.html" class="mobile-nav-link mobile-nav-sub">SEO &amp; Semantic Ranking</a>
+                <a href="ads.html" class="mobile-nav-link mobile-nav-sub">Paid Performance</a>
+                <a href="automation.html" class="mobile-nav-link mobile-nav-sub">AI Automation</a>
+                <a href="website-development.html" class="mobile-nav-link mobile-nav-sub">Website Development</a>
+                <a href="social-media.html" class="mobile-nav-link mobile-nav-sub">Social Media</a>
+                <a href="email-marketing.html" class="mobile-nav-link mobile-nav-sub">Email Marketing</a>
+                <a href="index.html#case-studies" class="mobile-nav-link" onclick="closeMobileMenu()">Case Studies</a>
+                <a href="index.html#insights" class="mobile-nav-link" onclick="closeMobileMenu()">Insights</a>
+                <a href="roi-calculator.html" class="mobile-nav-link">ROI Calculator</a>
+            </nav>
+            <a href="index.html#contact" onclick="closeMobileMenu()" class="btn-premium text-white px-6 py-4 rounded-full text-center font-bold text-lg mt-8 block shadow-xl">Get Started &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Article Hero -->
+    <section class="relative pt-36 pb-16 bg-bg-alt overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent rounded-full blur-[120px]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            <a href="index.html#insights" class="inline-flex items-center gap-2 text-primary font-semibold mb-8 hover:gap-3 transition-all">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Insights
+            </a>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-bold text-xs tracking-wide uppercase">Web Performance</span>
+                <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-500 font-semibold text-xs">7 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] mb-6">Site Speed = Revenue: How a 1-Second Delay Costs You 7% in Conversions</h1>
+            <p class="text-xl text-text-muted leading-relaxed max-w-2xl">A slow website isn't just annoying — it's a conversion killer. Here's the data behind the problem, and exactly how we fix it.</p>
+            <div class="flex items-center gap-4 mt-8 pt-8 border-t border-gray-200">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white font-bold text-sm">0A</div>
+                <div>
+                    <p class="font-bold text-sm">0aftermath Editorial Team</p>
+                    <p class="text-xs text-text-muted">Published April 2026 · Dubai, UAE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div style="display:flex; gap:3.5rem; max-width:72rem; margin:0 auto; align-items:flex-start; flex-wrap:wrap;">
+
+                <article class="article-body" style="flex:1 1 600px; min-width:0;">
+
+                    <p>In 2006, Jeff Bezos made a rule at Amazon: every 100ms of latency costs the company 1% in revenue. Two decades later, that relationship between speed and money has only intensified. Users are less patient, mobile internet is ubiquitous, and Google now uses Core Web Vitals as a direct ranking factor.</p>
+
+                    <p>Yet when we audit websites for new clients, slow load times are the single most common technical problem we find. Businesses spending thousands per month on ads are losing a significant percentage of that traffic before a single product is viewed — because their site takes four seconds to load.</p>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-3 gap-4 my-8">
+                        <div class="stat-card">
+                            <div class="number">7%</div>
+                            <p style="color:#6B7280; font-size:0.8125rem; margin:0;">Conversion loss per extra second of load time</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number">53%</div>
+                            <p style="color:#6B7280; font-size:0.8125rem; margin:0;">Mobile users abandon a site that takes 3+ seconds</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number">2.5s</div>
+                            <p style="color:#6B7280; font-size:0.8125rem; margin:0;">Target Largest Contentful Paint (LCP) for a passing score</p>
+                        </div>
+                    </div>
+
+                    <h2>Why Speed Is a Conversion Problem, Not Just a Technical One</h2>
+
+                    <p>The instinct is to treat speed as an IT issue — something to hand off to a developer and forget about. But the impact is fundamentally a business and revenue problem.</p>
+
+                    <p>Consider a business running Google Ads at AED 15,000 per month, driving 5,000 sessions to a landing page each month. If that page loads in 4 seconds instead of 1.5 seconds, research shows they're converting at roughly 2.1% instead of 3.5%. That's 70 conversions instead of 105 — on the exact same ad spend. A site speed problem is an invisible, ongoing cost.</p>
+
+                    <blockquote>
+                        <p>"A one-second improvement in load time yielded a 27% increase in conversion rate for one of our e-commerce clients. Same ads, same traffic, same price — more revenue just from a faster site."</p>
+                    </blockquote>
+
+                    <h2>Understanding Core Web Vitals: The Three Numbers That Matter</h2>
+
+                    <p>Google's Core Web Vitals are three metrics that measure real-world user experience. They're used as ranking factors — but more importantly, they correlate directly with user behaviour and conversion rates.</p>
+
+                    <h3>Largest Contentful Paint (LCP) — Target: Under 2.5 seconds</h3>
+                    <p>LCP measures how long it takes for the largest visible element on the page to load — usually the hero image or headline. This is what users perceive as "the page loaded." If your LCP is above 4 seconds, you have a serious problem.</p>
+
+                    <p><strong>Common culprits:</strong> Uncompressed hero images, render-blocking JavaScript, slow server response times, no CDN in use.</p>
+
+                    <h3>Interaction to Next Paint (INP) — Target: Under 200ms</h3>
+                    <p>INP replaced First Input Delay in 2024. It measures how quickly your page responds when a user interacts with it — clicking a button, tapping a form field, selecting a dropdown. A slow INP makes your site feel "broken" even after it loads.</p>
+
+                    <p><strong>Common culprits:</strong> Heavy JavaScript execution, third-party scripts (chat widgets, analytics, ad pixels) blocking the main thread.</p>
+
+                    <h3>Cumulative Layout Shift (CLS) — Target: Under 0.1</h3>
+                    <p>CLS measures visual stability. Have you ever gone to click a button and it jumped as an image loaded above it? That's a CLS problem — and it's infuriating for users. High CLS leads to mis-clicks and lost conversions.</p>
+
+                    <p><strong>Common culprits:</strong> Images without defined dimensions, late-loading ads, web fonts causing content shifts.</p>
+
+                    <div class="callout-box">
+                        <h3 style="margin-top:0; color: #0e7490;">How to Check Your Score Right Now</h3>
+                        <p style="color: #374151; margin-bottom: 0.5rem;">Go to <strong>pagespeed.web.dev</strong> and enter your URL. Google's PageSpeed Insights will give you a score out of 100 for both mobile and desktop, plus a breakdown of exactly which issues are hurting your performance.</p>
+                        <p style="color: #374151; margin-bottom: 0;">Anything below 70 on mobile is a significant revenue leak. Below 50 is urgent.</p>
+                    </div>
+
+                    <h2>The Most Impactful Fixes (In Order of Impact)</h2>
+
+                    <p>When we take on a new web development or SEO client with speed issues, here's our prioritised approach:</p>
+
+                    <h3>1. Image Optimisation (Highest ROI fix)</h3>
+                    <p>Uncompressed images are the number-one cause of slow LCP. Every image on a website should be:</p>
+                    <ul>
+                        <li>Converted to <strong>WebP or AVIF format</strong> (40–75% smaller than JPEG/PNG with no visible quality loss)</li>
+                        <li>Served at the correct dimensions (not a 3,000px image displayed at 800px)</li>
+                        <li>Lazy-loaded below the fold so the browser prioritises what's visible first</li>
+                        <li>Delivered via a <strong>Content Delivery Network (CDN)</strong> so the file comes from a server geographically close to the user</li>
+                    </ul>
+
+                    <h3>2. JavaScript Audit and Deferral</h3>
+                    <p>Every third-party script added to a website adds weight. Live chat widgets, analytics tools, pixel tracking, cookie banners — these all run on your page and compete for processing time. We audit every script and either defer it (loading it after the page is visible), remove it if unused, or replace it with a lighter alternative.</p>
+
+                    <h3>3. Server Response Time</h3>
+                    <p>Before a browser can load anything, it has to get a response from your server. A slow server adds latency to everything that follows. The fix is usually moving to a faster host (we recommend Vercel or Cloudflare Pages for most sites) and implementing server-side caching.</p>
+
+                    <h3>4. Font Loading Strategy</h3>
+                    <p>Web fonts cause layout shifts if not properly configured. The solution is to use <code>font-display: swap</code> so text is visible immediately while the font loads, and to preload the critical font files so they're available earlier.</p>
+
+                    <h3>5. Eliminate Render-Blocking Resources</h3>
+                    <p>Some CSS and JS files block a browser from rendering any content until they're fully downloaded. Moving non-critical CSS to load asynchronously and deferring JavaScript prevents this bottleneck.</p>
+
+                    <h2>What a 100 Lighthouse Score Actually Means</h2>
+
+                    <p>A perfect 100 on Google Lighthouse doesn't mean your site is flawless in every circumstance — real-world variables like network speed and device performance always apply. What it means is that you've eliminated every major technical barrier to fast loading. In our testing, sites that achieve 90+ on mobile Lighthouse scores consistently convert at 1.5–3x the rate of equivalent sites with scores below 60.</p>
+
+                    <p>We've achieved 100 scores for multiple clients across different platforms and industries. The consistent factors: Next.js or static site generation, image optimisation as a build step, careful third-party script management, and CDN delivery.</p>
+
+                    <h2>The Business Case in Plain Language</h2>
+
+                    <p>If your website converts at 2% and you have 3,000 monthly visitors, you're getting 60 conversions per month. A site speed optimisation that improves your conversion rate to 3% gives you 90 conversions — a 50% increase — without spending a single additional dirham on ads or traffic.</p>
+
+                    <p>For most businesses, a properly executed site speed project costs less than two months of ad spend — and the conversion improvement compounds for years.</p>
+
+                </article>
+
+                <!-- Sidebar -->
+                <aside style="width:22rem; flex-shrink:0;">
+                    <div style="position:sticky; top:7rem; display:flex; flex-direction:column; gap:1.5rem;">
+                        <div class="bg-gradient-to-br from-secondary to-accent p-8 rounded-3xl text-white">
+                            <h3 class="text-xl font-bold mb-3">Is Your Site Losing Revenue?</h3>
+                            <p class="text-white/80 text-sm mb-6 leading-relaxed">We'll audit your Core Web Vitals and show you exactly how much money your slow site is costing you — free.</p>
+                            <a href="website-development.html" class="block w-full text-center bg-white text-secondary font-bold py-3 rounded-xl hover:bg-gray-50 transition-colors">See Website Services</a>
+                        </div>
+                        <div class="bg-bg-alt p-8 rounded-3xl">
+                            <h4 class="font-bold mb-5 text-sm uppercase tracking-widest text-text-muted">More Insights</h4>
+                            <div class="space-y-4">
+                                <a href="insight-search-intent.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">01</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">Search Intent vs. Keywords</p>
+                                        <p class="text-xs text-text-muted">Why your blog posts aren't ranking</p>
+                                    </div>
+                                </a>
+                                <a href="insight-automating-sales.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">03</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">Automating Sales</p>
+                                        <p class="text-xs text-text-muted">AI agents that qualify leads 24/7</p>
+                                    </div>
+                                </a>
+                                <a href="insight-landing-page-2026.html" class="flex gap-4 group">
+                                    <div class="text-2xl font-bold text-gray-200 group-hover:text-primary transition-colors flex-shrink-0">04</div>
+                                    <div>
+                                        <p class="font-bold text-sm group-hover:text-primary transition-colors">The Perfect 2026 Landing Page</p>
+                                        <p class="text-xs text-text-muted">Anatomy of a page that converts at 10%+</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="website-development.html" class="flex items-center gap-4 p-6 bg-white border border-gray-200 rounded-2xl hover:border-secondary/40 hover:shadow-lg transition-all group">
+                            <div class="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="code" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-bold group-hover:text-secondary transition-colors">Website Development</p>
+                                <p class="text-sm text-text-muted">Websites built to convert</p>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-text-muted group-hover:text-secondary transition-colors"></i>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-20 bg-bg-alt">
+        <div class="container mx-auto px-6">
+            <div class="bg-[#111827] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden text-center">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute -top-20 -left-20 w-80 h-80 bg-secondary rounded-full blur-[100px]"></div>
+                    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-accent rounded-full blur-[100px]"></div>
+                </div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Stop letting a slow website steal your conversions.</h2>
+                    <p class="text-xl text-white/70 mb-10 leading-relaxed">We'll audit your site speed and show you exactly what to fix — and build you a website that loads in under 1.5 seconds on mobile.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="website-development.html" class="btn-accent text-text-main font-bold px-12 py-5 rounded-full text-lg inline-block">See Website Services</a>
+                        <a href="https://cal.com/0aftermath/30min" target="_blank" rel="noopener" class="bg-white/10 border border-white/20 text-white font-bold px-12 py-5 rounded-full text-lg inline-block hover:bg-white/20 transition-colors">Book a Strategy Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html"><img src="logo.png" alt="0aftermath - AI Marketing Agency" class="h-16 mb-6 logo-main"></a>
+                    <p class="text-text-muted max-w-sm">We're on a mission to simplify digital marketing for small businesses through the power of AI automation and performance engineering.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Services</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li><a href="seo.html" class="hover:text-primary transition-colors">SEO &amp; Semantic Ranking</a></li>
+                        <li><a href="ads.html" class="hover:text-primary transition-colors">Paid Performance</a></li>
+                        <li><a href="automation.html" class="hover:text-primary transition-colors">AI Automation</a></li>
+                        <li><a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-5">Contact</h5>
+                    <ul class="space-y-3 text-text-muted">
+                        <li>Dubai, UAE</li>
+                        <li><a href="mailto:hello@0aftermath.com" class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
+                        <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000 0000</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-text-muted">© 2026 0aftermath. Built for Performance.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/company/0aftermath/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-primary transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@0.469.0" defer></script>
+    <script src="script.js" defer></script>
+    <script src="cal-popup.js?v=2"></script>
+</body>
+</html>
