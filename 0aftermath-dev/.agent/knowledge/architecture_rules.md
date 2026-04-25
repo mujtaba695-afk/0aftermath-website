@@ -1,27 +1,41 @@
-# 0aftermath Agent Knowledge Base
-> Maintained autonomously by the `self-learning-autopilot` agent.  
-> Human-readable audit trail of every architectural decision and bug discovered.
+# 0aftermath Architecture Rules — Knowledge Base
+
+> This file is maintained by the `self-learning-autopilot` agent. Rules are appended after each autonomous scan. Do not manually edit unless correcting an error.
 
 ---
 
-## Standing Rules (Never Override)
-These rules were established by the project owner and are immutable:
+## Baseline Rules (Established)
 
-1. **No Tailwind CDN**: All styling must be served from the locally compiled `tailwind-build.css` and the handcrafted `styles.css`. The CDN is permanently banned.
-2. **Container Discipline**: `.container` must always be defined with `max-width: 1280px` and `margin-inline: auto`. This rule guards against the v4 compiler silently dropping layout boundaries.
-3. **Zero Duplicate Content**: No two page sections may convey the same information. If a "Services" section exists, no "Built with Precision" section may echo it.
-4. **Defer All Scripts**: Every third-party `<script>` tag must carry a `defer` or `async` attribute to guarantee First Contentful Paint is never blocked.
-5. **Zero Tolerance QA**: No code is pushed to `main` without the Quality Control Auditor physically loading the page and confirming margins, alignment, and widget z-index layers are correct.
-6. **Native Skill Protocol**: All agent personas must be formalized as Anthropic Skills using the `skill-creator` SKILL.md format (YAML frontmatter + body instructions). Loose markdown files in custom directories are not accepted.
-7. **Premium Aesthetic**: All generated visuals must adhere to the "Sharp & Geometric" brand system: Primary `#4F46E5`, Secondary `#06B6D4`, Accent `#F59E0B`. No generic purple gradients or AI-slop aesthetics.
+### CSS Architecture
+- Two stylesheets: `tailwind-build.css` (compiled) loads FIRST, `styles.css` (overrides) loads SECOND
+- `.container` must always resolve to: `max-width: 1280px`, `margin-inline: auto`, `padding-inline: 1.5rem`
+- If both files define the same selector, `styles.css` wins (cascade order). Prefer removing duplicates over using `!important`.
+
+### Script Loading
+- All `<script>` tags must have `defer` or `async`
+- Exception: inline GTM and form handler scripts
+- Lucide icons loaded via CDN with `defer`
+
+### Page Structure
+- Every page wraps content in `<section>` → `.container.mx-auto.px-6`
+- Section backgrounds alternate: `bg-white` → `bg-bg-alt` → `bg-white`
+- Vertical padding: `py-24` for major sections
+
+### Z-Index Layers
+- Base content: `z-0`
+- Sticky header: `z-50`
+- Dropdown menus: `z-[60]`
+- Mobile menu: `z-[100]`
+- Cal.com popup: `z-[9999]`
+
+### Brand Colors (from tailwind.config.js)
+- Primary: `#4F46E5`
+- Secondary: `#06B6D4`
+- Accent: `#F59E0B`
+- Text: `#111827` / `#4B5563`
 
 ---
 
-## Scan History
+## Scan Reports
 
-## [2026-04-10] Initial Architecture Scan — Human Authored
-- **BUG**: Tailwind CDN was blocking First Contentful Paint → **Fix Applied**: CDN removed, standalone Tailwind CLI compiled `tailwind-build.css`.
-- **BUG**: Tailwind v4 compiler silently dropped `.container` class → **Fix Applied**: Hardcoded `.container` into `styles.css` to bypass compiler dependency.
-- **DRIFT**: Redundant "Built with Precision" cards duplicating Services section → **Fix Applied**: Section removed from `index.html`.
-- **OPTIMIZATION**: Third-party Lucide Icons script lacked `defer` → **Rule Applied**: All external scripts now require `defer`.
-- **DRIFT**: Agent personas existed as loose `.md` files in a custom directory → **Fix Applied**: Migrated to official Anthropic `skill-creator` SKILL.md format.
+<!-- Self-learning autopilot appends dated entries below this line -->
