@@ -23,7 +23,7 @@
             <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="text-sm text-gray-600">
                     <p class="font-bold text-gray-900 mb-1">We value your privacy</p>
-                    <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+                    <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. Read our <a href="privacy.html" class="text-indigo-600 hover:underline">Privacy Policy</a> to learn more.</p>
                 </div>
                 <div class="flex gap-3 shrink-0">
                     <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
