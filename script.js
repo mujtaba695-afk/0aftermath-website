@@ -134,7 +134,7 @@ forms.forEach(form => {
     });
 });
 
-// FAQ Accordion Functionality
+// FAQ Accordion Functionality — cache DOM refs at setup to avoid querying inside click handler
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
@@ -146,18 +146,17 @@ faqItems.forEach(item => {
     answer.style.maxHeight = '0';
     answer.style.overflow = 'hidden';
     answer.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    question.setAttribute('aria-expanded', 'false');
 
     question.addEventListener('click', () => {
         const isOpen = item.classList.contains('active');
 
-        // Close all other FAQs (optional: remove this block for multi-open behavior)
+        // Close all other FAQs — use cached refs to avoid DOM queries on each click
         faqItems.forEach(otherItem => {
             if (otherItem !== item && otherItem.classList.contains('active')) {
-                const otherAnswer = otherItem.querySelector('.faq-answer');
-                const otherIcon = otherItem.querySelector('.faq-icon');
-                otherAnswer.style.maxHeight = '0';
+                otherItem._faqAnswer.style.maxHeight = '0';
                 otherItem.classList.remove('active');
-                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                if (otherItem._faqIcon) otherItem._faqIcon.style.transform = 'rotate(0deg)';
             }
         });
 
@@ -175,6 +174,7 @@ faqItems.forEach(item => {
         }
     });
 
-    // Set initial ARIA attributes
-    question.setAttribute('aria-expanded', 'false');
+    // Store refs on element to avoid DOM queries inside click handler
+    item._faqAnswer = answer;
+    item._faqIcon = icon;
 });

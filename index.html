@@ -20,35 +20,63 @@
     <!-- Google Tag Manager -->
     
 
-    <!-- JSON-LD SEO Schema - Organization -->
+    <!-- JSON-LD SEO Schema - Global Connected Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "0aftermath",
-      "description": "AI-Powered Marketing & Automation Agency specializing in performance marketing, SEO, website development, and conversion optimization for businesses worldwide",
-      "url": "https://0aftermath.com",
-      "logo": "https://0aftermath.com/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressCountry": "AE"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "hello@0aftermath.com",
-        "contactType": "Customer Service"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "127",
-        "bestRating": "5"
-      },
-      "knowsAbout": [
-        "AI Automation",
-        "Digital Marketing",
-        "Performance Marketing",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://0aftermath.com/#organization",
+          "name": "0aftermath",
+          "url": "https://0aftermath.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://0aftermath.com/#logo",
+            "url": "https://0aftermath.com/logo.png",
+            "contentUrl": "https://0aftermath.com/logo.png",
+            "width": 512,
+            "height": 512,
+            "caption": "0aftermath"
+          },
+          "image": {
+            "@id": "https://0aftermath.com/#logo"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/0aftermath/"
+          ],
+          "description": "Global AI-Powered Marketing & Automation Agency specializing in performance marketing, semantic SEO, and autonomous business systems for a worldwide clientele.",
+          "areaServed": "Worldwide",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@0aftermath.com",
+            "contactType": "customer support"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://0aftermath.com/#website",
+          "url": "https://0aftermath.com",
+          "name": "0aftermath",
+          "description": "Global AI-Powered Marketing & Automation Agency",
+          "publisher": {
+            "@id": "https://0aftermath.com/#organization"
+          },
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://0aftermath.com/seo.html?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          ],
+          "inLanguage": "en-US"
+        }
+      ]
+    }
+    </script>        "Performance Marketing",
         "SEO",
         "Marketing Automation"
       ]
@@ -990,7 +1018,7 @@
                 <div>
                     <h5 class="font-bold mb-6">Contact</h5>
                     <ul class="space-y-4 text-text-muted">
-                        <li>Dubai, UAE</li>
+                        <li>Global HQ — Dubai, UAE</li>
                         <li><a href="mailto:hello@0aftermath.com" class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
                         <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000 0000</a></li>
                     </ul>

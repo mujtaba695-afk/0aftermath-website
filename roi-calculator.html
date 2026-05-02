@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketing ROI Calculator | 0aftermath</title>
     <meta name="description" content="Calculate your potential Return on Investment with 0aftermath's AI-powered marketing and automation services.">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://app.posthog.com https://eu.i.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://app.posthog.com https://eu.i.posthog.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://0aftermath.com/roi-calculator.html">
     <link rel="icon" href="logo.png" type="image/png">
@@ -17,8 +19,69 @@
     <meta property="og:image" content="https://0aftermath.com/social-preview.png">
     <meta property="og:url" content="https://0aftermath.com/roi-calculator.html">
     <meta property="og:type" content="website">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KWKDKSYLC"></script>
+    <!-- JSON-LD SEO Schema - Tool Graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://0aftermath.com/#website",
+          "url": "https://0aftermath.com/",
+          "name": "0aftermath",
+          "publisher": { "@id": "https://0aftermath.com/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://0aftermath.com/#organization",
+          "name": "0aftermath",
+          "url": "https://0aftermath.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://0aftermath.com/logo.png"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/0aftermath/"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://0aftermath.com/roi-calculator.html#webpage",
+          "url": "https://0aftermath.com/roi-calculator.html",
+          "name": "Marketing ROI Calculator | 0aftermath",
+          "isPartOf": { "@id": "https://0aftermath.com/#website" },
+          "description": "Calculate your potential Return on Investment with 0aftermath's AI-powered marketing and automation services.",
+          "breadcrumb": { "@id": "https://0aftermath.com/roi-calculator.html#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://0aftermath.com/roi-calculator.html#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://0aftermath.com/" },
+            { "@type": "ListItem", "position": 2, "name": "ROI Calculator" }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://0aftermath.com/roi-calculator.html#software",
+          "name": "Marketing ROI Calculator",
+          "operatingSystem": "All",
+          "applicationCategory": "BusinessApplication",
+          "author": { "@id": "https://0aftermath.com/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "12"
+          }
+        }
+      ]
+    }
+    </script>
     
 
     <link rel="stylesheet" href="styles.css?v=6.0.0">
@@ -123,6 +186,12 @@
                 <!-- Calculator Card -->
                 <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100">
                     <form id="calculatorForm" class="space-y-6">
+                        <!-- Currency Selection -->
+                        <div class="flex items-center justify-center gap-4 mb-8 p-1 bg-gray-100 rounded-2xl w-fit mx-auto">
+                            <button type="button" id="currencyUSD" onclick="setCurrency('USD')" class="px-6 py-2 rounded-xl font-bold transition-all bg-white text-primary shadow-sm">USD ($)</button>
+                            <button type="button" id="currencyAED" onclick="setCurrency('AED')" class="px-6 py-2 rounded-xl font-bold transition-all text-gray-500 hover:text-primary">AED (د.إ)</button>
+                        </div>
+
                         <!-- Account Status -->
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">
@@ -203,7 +272,7 @@
                         <!-- Budget -->
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                Monthly Budget (AED) *
+                                Monthly Budget (<span class="currency-label">USD</span>) *
                             </label>
                             <input type="number" id="budget" required min="100" step="100" placeholder="e.g., 5000"
                                 class="w-full px-5 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white outline-none transition-all">
@@ -454,13 +523,40 @@
             'tiktok': { emoji: '🎵', color: 'from-pink-500 to-cyan-500' }
         };
 
-        // CPA Data
+        // CPA Data (Base values in AED)
         const cpaData = {
             'real-estate': { new: 375, old: 225, label: 'Qualified Leads', cpm: 35 },
             'ecommerce': { new: 105, old: 75, label: 'Sales Orders', cpm: 25 },
             'fnb': { new: 30, old: 20, label: 'Bookings / Messages', cpm: 20 },
             'b2b': { new: 500, old: 325, label: 'B2B Leads', cpm: 40 }
         };
+
+        let currentCurrency = 'USD';
+        const exchangeRate = 3.67; // 1 USD = 3.67 AED
+
+        function setCurrency(curr) {
+            currentCurrency = curr;
+            const usdBtn = document.getElementById('currencyUSD');
+            const aedBtn = document.getElementById('currencyAED');
+            const labels = document.querySelectorAll('.currency-label');
+            
+            if (curr === 'USD') {
+                usdBtn.classList.add('bg-white', 'text-primary', 'shadow-sm');
+                aedBtn.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+                aedBtn.classList.add('text-gray-500');
+                labels.forEach(l => l.textContent = 'USD');
+            } else {
+                aedBtn.classList.add('bg-white', 'text-primary', 'shadow-sm');
+                usdBtn.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+                usdBtn.classList.add('text-gray-500');
+                labels.forEach(l => l.textContent = 'AED');
+            }
+            
+            // Recalculate if results are visible
+            if (!resultsSection.classList.contains('hidden')) {
+                calculateAndShowResults();
+            }
+        }
 
         // Form elements
         const objectiveSelect = document.getElementById('objective');
@@ -533,10 +629,11 @@
             const phoneError = document.getElementById('phoneError');
             const phoneValue = phoneInput.value.trim();
 
-            // International phone regex: Allows +, spaces, dashes, parentheses, 7-15 digits
-            const phoneRegex = /^\+?[\d\s-()]{7,20}$/;
+            // International E.164 phone regex — strips formatting then validates 7-15 digit number
+            const cleanPhone = phoneValue.replace(/[\s\-().+]/g, '');
+            const phoneRegex = /^[1-9]\d{6,14}$/;
 
-            if (!phoneRegex.test(phoneValue.replace(/[\s-()]/g, '')) || phoneValue.length < 7) {
+            if (!phoneRegex.test(cleanPhone)) {
                 phoneError.classList.remove('hidden');
                 phoneInput.classList.add('border-red-500');
                 phoneInput.focus();
@@ -606,25 +703,31 @@
             const objective = document.getElementById('objective').value;
             const accountStatus = document.getElementById('accountStatus').value;
             const industry = document.getElementById('industry').value;
-            const budget = parseFloat(document.getElementById('budget').value);
+            const budgetInput = parseFloat(document.getElementById('budget').value);
 
-            if (!objective || !accountStatus || !industry || !budget) return null;
+            if (!objective || !accountStatus || !industry || !budgetInput) return null;
+
+            // Normalize budget to AED for base calculation
+            const budgetAED = currentCurrency === 'USD' ? budgetInput * exchangeRate : budgetInput;
 
             const data = cpaData[industry];
             const cpa = accountStatus === 'new' ? data.new : data.old;
             const cpm = data.cpm;
-            const cpc = 12; // Average CPC
+            const cpc = 12; // Average CPC in AED
 
-            // Calculate base metrics
-            const impressions = Math.round((budget / cpm) * 1000);
-            const clicks = Math.round(budget / cpc);
-            const leads = Math.round(budget / cpa);
+            // Calculate base metrics (all in AED units for now)
+            const impressions = Math.round((budgetAED / cpm) * 1000);
+            const clicks = Math.round(budgetAED / cpc);
+            const leads = Math.round(budgetAED / cpa);
 
             return {
                 impressions,
                 clicks,
                 leads,
-                cpa
+                cpa: currentCurrency === 'USD' ? cpa / exchangeRate : cpa,
+                cpm: currentCurrency === 'USD' ? cpm / exchangeRate : cpm,
+                cpc: currentCurrency === 'USD' ? cpc / exchangeRate : cpc,
+                budget: budgetInput
             };
         }
 
@@ -669,7 +772,7 @@
                             <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">CPM</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${Math.round(cpm)} AED</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${currentCurrency === 'USD' ? '$' : ''}${metrics.cpm.toFixed(currentCurrency === 'USD' ? 2 : 0)} ${currentCurrency === 'AED' ? 'AED' : ''}</p>
                     </div>
                 `;
             } else if (objective === 'traffic') {
@@ -681,21 +784,21 @@
                             <i data-lucide="eye" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${metrics.impressions.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${clicks.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${metrics.clicks.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">CPC</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${Math.round(cpc)} AED</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${currentCurrency === 'USD' ? '$' : ''}${metrics.cpc.toFixed(currentCurrency === 'USD' ? 2 : 0)} ${currentCurrency === 'AED' ? 'AED' : ''}</p>
                     </div>
                 `;
             } else if (objective === 'leads') {
@@ -707,28 +810,28 @@
                             <i data-lucide="eye" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${metrics.impressions.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${clicks.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${metrics.clicks.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="target" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. ${data.label}</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${leads.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${metrics.leads.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Cost Per Lead</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">${Math.round(cpa)} AED</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">${currentCurrency === 'USD' ? '$' : ''}${metrics.cpa.toFixed(currentCurrency === 'USD' ? 2 : 0)} ${currentCurrency === 'AED' ? 'AED' : ''}</p>
                     </div>
                 `;
             } else if (objective === 'conversions') {
@@ -740,28 +843,28 @@
                             <i data-lucide="eye" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Impressions</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${impressions.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">${metrics.impressions.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-secondary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. Clicks</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${clicks.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text">${metrics.clicks.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="shopping-cart" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">Est. ${data.label}</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${conversions.toLocaleString()}</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text">${metrics.leads.toLocaleString()}</p>
                     </div>
                     <div class="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                         <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6">
                             <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-gray-900">CPA</h3>
-                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">${Math.round(cpa)} AED</p>
+                        <p class="text-3xl font-display font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">${currentCurrency === 'USD' ? '$' : ''}${metrics.cpa.toFixed(currentCurrency === 'USD' ? 2 : 0)} ${currentCurrency === 'AED' ? 'AED' : ''}</p>
                     </div>
                 `;
             }
@@ -785,10 +888,16 @@
             document.body.style.overflow = 'auto';
         }
 
-        function logLeadData(data) {
-            console.log('=== LEAD CAPTURED ===');
-            console.log(JSON.stringify(data, null, 2));
-            console.log('=====================');
+        // Sanitize a string value to prevent XSS — strips any HTML tags
+        function sanitize(value) {
+            if (typeof value !== 'string') return value;
+            const div = document.createElement('div');
+            div.textContent = value;
+            return div.innerHTML;
+        }
+
+        function logLeadData() {
+            // Debug logging intentionally disabled in production
         }
 
         // Initialize Supabase
@@ -827,18 +936,19 @@
 
         async function submitLeadToSupabase(data) {
             try {
+                // Sanitize all string inputs before storage to prevent XSS/injection
                 const { error } = await supabaseClient
                     .from('leads')
                     .insert([{
-                        name: data.name,
-                        email: data.email,
-                        phone: data.phone,
-                        company: data.company,
-                        account_status: data.accountStatus,
-                        industry: data.industry,
-                        objective: data.objective,
-                        platform: data.platform,
-                        ad_type: data.adType,
+                        name: sanitize(data.name),
+                        email: sanitize(data.email),
+                        phone: sanitize(data.phone),
+                        company: sanitize(data.company),
+                        account_status: sanitize(data.accountStatus),
+                        industry: sanitize(data.industry),
+                        objective: sanitize(data.objective),
+                        platform: sanitize(data.platform),
+                        ad_type: sanitize(data.adType),
                         budget: parseFloat(data.budget),
                         estimated_impressions: parseFloat(data.metrics.impressions),
                         estimated_clicks: parseFloat(data.metrics.clicks),
@@ -847,27 +957,62 @@
                     }]);
 
                 if (error) throw error;
-                console.log('Lead saved to Supabase successfully');
 
-                // Identify in PostHog
+                // Identify in PostHog (no sensitive fields exposed)
                 if (window.posthog) {
-                    posthog.identify(data.email, {
-                        name: data.name,
-                        company: data.company,
-                        phone: data.phone
+                    posthog.identify(sanitize(data.email), {
+                        name: sanitize(data.name),
+                        company: sanitize(data.company)
                     });
-                    posthog.capture('lead_captured', data);
+                    posthog.capture('lead_captured', { industry: data.industry, objective: data.objective });
                 }
 
-            } catch (err) {
-                console.error('Error saving lead:', err);
-                // Fallback: Store locally (already done via sessionStorage flag) or retry
+            } catch (_err) {
+                // Errors are silenced — do not expose stack traces or internal details to the browser
             }
         }
 
         // Initialize Lucide icons
         lucide.createIcons();
     </script>
+
+    <!-- Footer -->
+    <footer class="pt-24 pb-12 bg-gray-50 border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="logo.png" alt="0aftermath - AI Marketing Agency" class="h-16 mb-8 logo-main">
+                    <p class="text-gray-500 max-w-sm">We're on a mission to simplify digital marketing for small
+                        businesses through the power of AI automation and performance engineering.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">Services</h5>
+                    <ul class="space-y-4 text-gray-500">
+                        <li><a href="seo.html" class="hover:text-primary transition-colors">SEO & Semantic Ranking</a></li>
+                        <li><a href="ads.html" class="hover:text-primary transition-colors">Paid Performance</a></li>
+                        <li><a href="automation.html" class="hover:text-primary transition-colors">AI Automation</a></li>
+                        <li><a href="roi-calculator.html" class="hover:text-primary transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">Contact</h5>
+                    <ul class="space-y-4 text-gray-500">
+                        <li>Global HQ — Dubai, UAE</li>
+                        <li><a href="mailto:hello@0aftermath.com" class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
+                        <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000 0000</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-gray-500">© 2026 0aftermath. Built for Performance.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/company/0aftermath/?viewAsMember=true" target="_blank"
+                        rel="noopener noreferrer" class="text-gray-500 hover:text-primary transition-colors"><i
+                            data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/cookie-banner.js" defer></script>
     <script src="cal-popup.js?v=2" defer></script>

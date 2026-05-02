@@ -30,21 +30,51 @@
     <!-- Google Tag Manager -->
     
 
-    <!-- JSON-LD Service Schema -->
+    <!-- JSON-LD SEO Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "AI-Powered SEO & Semantic Search Optimization",
-      "provider": {
-        "@type": "Organization",
-        "name": "0aftermath",
-        "url": "https://0aftermath.com",
-        "logo": "https://0aftermath.com/logo.png"
-      },
-      "description": "Technical SEO audits and semantic search optimisation designed for AI-driven engines like SearchGPT, Perplexity, and Google AI Overviews.",
-      "areaServed": "Worldwide",
-      "url": "https://0aftermath.com/seo.html"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://0aftermath.com/seo.html#webpage",
+          "url": "https://0aftermath.com/seo.html",
+          "name": "AI SEO & Semantic Ranking Services | 0aftermath",
+          "isPartOf": { "@id": "https://0aftermath.com/#website" },
+          "breadcrumb": { "@id": "https://0aftermath.com/seo.html#breadcrumb" },
+          "description": "Rank on Google and get cited by AI tools like ChatGPT and Perplexity. 0aftermath builds semantic SEO strategies that put your business at the top of every search."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://0aftermath.com/seo.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "https://0aftermath.com/",
+                "name": "Home"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@id": "https://0aftermath.com/seo.html",
+                "name": "SEO & Semantic Ranking"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "serviceType": "AI-Powered SEO & Semantic Search Optimization",
+          "provider": { "@id": "https://0aftermath.com/#organization" },
+          "description": "Technical SEO audits and semantic search optimisation designed for AI-driven engines like SearchGPT, Perplexity, and Google AI Overviews.",
+          "areaServed": "Worldwide",
+          "url": "https://0aftermath.com/seo.html"
+        }
+      ]
     }
     </script>
 
@@ -400,7 +430,7 @@
                 <div>
                     <h5 class="font-bold mb-5">Contact</h5>
                     <ul class="space-y-3 text-text-muted">
-                        <li>Dubai, UAE</li>
+                        <li>Global HQ — Dubai, UAE</li>
                         <li><a href="mailto:hello@0aftermath.com"
                                 class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
                         <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000

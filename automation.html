@@ -30,21 +30,51 @@
     <!-- Google Tag Manager -->
     
 
-    <!-- JSON-LD Service Schema -->
+    <!-- JSON-LD SEO Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "AI Marketing Automation & CRM Optimisation",
-      "provider": {
-        "@type": "Organization",
-        "name": "0aftermath",
-        "url": "https://0aftermath.com",
-        "logo": "https://0aftermath.com/logo.png"
-      },
-      "description": "Industrial-grade marketing automation using AI for lead qualification, lifecycle management, and workflow optimisation — running 24/7 without extra headcount.",
-      "areaServed": "Worldwide",
-      "url": "https://0aftermath.com/automation.html"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://0aftermath.com/automation.html#webpage",
+          "url": "https://0aftermath.com/automation.html",
+          "name": "AI Marketing Automation | 0aftermath",
+          "isPartOf": { "@id": "https://0aftermath.com/#website" },
+          "breadcrumb": { "@id": "https://0aftermath.com/automation.html#breadcrumb" },
+          "description": "Your business, running 24/7. 0aftermath builds AI automation systems that qualify leads, nurture prospects, and close customers."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://0aftermath.com/automation.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "https://0aftermath.com/",
+                "name": "Home"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@id": "https://0aftermath.com/automation.html",
+                "name": "AI Automation"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "serviceType": "AI Marketing Automation & CRM Optimisation",
+          "provider": { "@id": "https://0aftermath.com/#organization" },
+          "description": "Industrial-grade marketing automation using AI for lead qualification, lifecycle management, and workflow optimisation.",
+          "areaServed": "Worldwide",
+          "url": "https://0aftermath.com/automation.html"
+        }
+      ]
     }
     </script>
 
@@ -386,7 +416,7 @@
                 <div>
                     <h5 class="font-bold mb-5">Contact</h5>
                     <ul class="space-y-3 text-text-muted">
-                        <li>Dubai, UAE</li>
+                        <li>Global HQ — Dubai, UAE</li>
                         <li><a href="mailto:hello@0aftermath.com"
                                 class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
                         <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000

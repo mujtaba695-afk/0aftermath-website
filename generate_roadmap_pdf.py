@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from fpdf import FPDF
 from posthog import Posthog
-import textwrap
+
 
 load_dotenv()
 

@@ -78,8 +78,6 @@
 
         if (!data) return;
 
-        console.log(`[0aftermath] Personalization Active: ${persona}`);
-
         Object.keys(IDS).forEach(key => {
             const el = document.getElementById(IDS[key]);
             if (el) {

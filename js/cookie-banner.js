@@ -69,8 +69,6 @@
 
     function applyConsent(status) {
         if (status === 'granted') {
-            console.log('Cookie Consent: GRANTED');
-
             // Re-enable PostHog capturing if it was loaded
             if (window.posthog) {
                 window.posthog.opt_in_capturing();
@@ -84,8 +82,6 @@
                 });
             }
         } else {
-            console.log('Cookie Consent: DENIED');
-
             // Disable PostHog capturing
             if (window.posthog) {
                 window.posthog.opt_out_capturing();

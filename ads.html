@@ -30,21 +30,51 @@
     <!-- Google Tag Manager -->
     
 
-    <!-- JSON-LD Service Schema -->
+    <!-- JSON-LD SEO Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "AI-Optimised Paid Performance Advertising",
-      "provider": {
-        "@type": "Organization",
-        "name": "0aftermath",
-        "url": "https://0aftermath.com",
-        "logo": "https://0aftermath.com/logo.png"
-      },
-      "description": "High-performance ad management across Google, Meta, and LinkedIn using AI predictive bidding models to reduce customer acquisition cost and maximise ROAS.",
-      "areaServed": "Worldwide",
-      "url": "https://0aftermath.com/ads.html"
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://0aftermath.com/ads.html#webpage",
+          "url": "https://0aftermath.com/ads.html",
+          "name": "AI-Powered Paid Advertising | 0aftermath",
+          "isPartOf": { "@id": "https://0aftermath.com/#website" },
+          "breadcrumb": { "@id": "https://0aftermath.com/ads.html#breadcrumb" },
+          "description": "Stop wasting ad spend. 0aftermath uses AI predictive bidding to reduce acquisition costs across Google, Meta, and TikTok globally."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://0aftermath.com/ads.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "https://0aftermath.com/",
+                "name": "Home"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@id": "https://0aftermath.com/ads.html",
+                "name": "Paid Performance"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "serviceType": "AI-Optimised Paid Performance Advertising",
+          "provider": { "@id": "https://0aftermath.com/#organization" },
+          "description": "High-performance ad management globally using AI predictive bidding models to maximise ROAS.",
+          "areaServed": "Worldwide",
+          "url": "https://0aftermath.com/ads.html"
+        }
+      ]
     }
     </script>
 
@@ -403,7 +433,7 @@
                 <div>
                     <h5 class="font-bold mb-5">Contact</h5>
                     <ul class="space-y-3 text-text-muted">
-                        <li>Dubai, UAE</li>
+                        <li>Global HQ — Dubai, UAE</li>
                         <li><a href="mailto:hello@0aftermath.com"
                                 class="hover:text-primary transition-colors">hello@0aftermath.com</a></li>
                         <li><a href="tel:+97150000000" class="hover:text-primary transition-colors">+971 50 000

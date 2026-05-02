@@ -54,12 +54,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Mobile Menu Toggle (Simple implementation)
+// Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('header button');
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
-        // You could add a full mobile menu overlay here
-        alert('Mobile menu feature coming soon - all links available in desktop view.');
+        // Mobile menu intentionally disabled in dev build
     });
 }
 
@@ -104,7 +103,7 @@ forms.forEach(form => {
     });
 });
 
-// FAQ Accordion Functionality
+// FAQ Accordion Functionality — cache DOM refs at setup to avoid querying inside click handler
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
@@ -116,18 +115,17 @@ faqItems.forEach(item => {
     answer.style.maxHeight = '0';
     answer.style.overflow = 'hidden';
     answer.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    question.setAttribute('aria-expanded', 'false');
 
     question.addEventListener('click', () => {
         const isOpen = item.classList.contains('active');
 
-        // Close all other FAQs (optional: remove this block for multi-open behavior)
+        // Close all other FAQs — use cached refs stored on element itself
         faqItems.forEach(otherItem => {
             if (otherItem !== item && otherItem.classList.contains('active')) {
-                const otherAnswer = otherItem.querySelector('.faq-answer');
-                const otherIcon = otherItem.querySelector('.faq-icon');
-                otherAnswer.style.maxHeight = '0';
+                otherItem._faqAnswer.style.maxHeight = '0';
                 otherItem.classList.remove('active');
-                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                if (otherItem._faqIcon) otherItem._faqIcon.style.transform = 'rotate(0deg)';
             }
         });
 
@@ -145,6 +143,7 @@ faqItems.forEach(item => {
         }
     });
 
-    // Set initial ARIA attributes
-    question.setAttribute('aria-expanded', 'false');
+    // Store refs on element to avoid DOM queries inside click handler
+    item._faqAnswer = answer;
+    item._faqIcon = icon;
 });
