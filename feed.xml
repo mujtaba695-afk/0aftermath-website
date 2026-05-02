@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>0aftermath Insights &amp; Case Studies</title>
+    <link>https://0aftermath.com</link>
+    <description>Latest insights on AI marketing, automation, and semantic SEO.</description>
+    <atom:link href="https://0aftermath.com/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <item>
+      <title><![CDATA[The Perfect 2026 Landing Page: Anatomy of a Page That Converts at 10%+ | 0aftermath]]></title>
+      <link>https://0aftermath.com/insight-landing-page-2026.html</link>
+      <description><![CDATA[What separates a landing page that converts at 2% from one that converts at 10%+? We break down every element of a high-converting page — from trust signals to frictionless lead capture.]]></description>
+      <pubDate>Sat, 02 May 2026 12:45:23 -0000</pubDate>
+      <guid>https://0aftermath.com/insight-landing-page-2026.html</guid>
+    </item>
+    <item>
+      <title><![CDATA[Automating Sales: Using AI Agents to Qualify Leads While You Sleep | 0aftermath]]></title>
+      <link>https://0aftermath.com/insight-automating-sales.html</link>
+      <description><![CDATA[Learn how AI agents can handle lead qualification, follow-up, and appointment booking 24/7 — so your sales team only speaks to warm, ready-to-buy prospects.]]></description>
+      <pubDate>Sat, 02 May 2026 12:45:23 -0000</pubDate>
+      <guid>https://0aftermath.com/insight-automating-sales.html</guid>
+    </item>
+    <item>
+      <title><![CDATA[Search Intent vs. Keywords: Why Your Blog Posts Aren't Ranking | 0aftermath]]></title>
+      <link>https://0aftermath.com/insight-search-intent.html</link>
+      <description><![CDATA[Keyword density is dead. Learn how search intent and semantic relevance have replaced keyword stuffing as the #1 ranking factor in 2026 — and how to fix your content strategy.]]></description>
+      <pubDate>Sat, 02 May 2026 12:45:23 -0000</pubDate>
+      <guid>https://0aftermath.com/insight-search-intent.html</guid>
+    </item>
+    <item>
+      <title><![CDATA[Site Speed = Revenue: How a 1-Second Delay Costs You 7% in Conversions | 0aftermath]]></title>
+      <link>https://0aftermath.com/insight-site-speed.html</link>
+      <description><![CDATA[A technical breakdown of how page speed directly impacts conversions and revenue — and how we consistently achieve 100 on Google Lighthouse for our clients.]]></description>
+      <pubDate>Sat, 02 May 2026 12:45:23 -0000</pubDate>
+      <guid>https://0aftermath.com/insight-site-speed.html</guid>
+    </item>
+    <item>
+      <title><![CDATA[Case Studies | 0aftermath — AI Marketing Agency]]></title>
+      <link>https://0aftermath.com/case-studies.html</link>
+      <description><![CDATA[Explore our case studies to see how 0aftermath's AI-powered marketing, SEO, and automation strategies drive measurable growth and ROI for businesses globally.]]></description>
+      <pubDate>Sat, 02 May 2026 12:44:10 -0000</pubDate>
+      <guid>https://0aftermath.com/case-studies.html</guid>
+    </item>
+  </channel>
+</rss>

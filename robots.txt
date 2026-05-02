@@ -1,5 +1,25 @@
 User-agent: *
 Allow: /
 
+# Explicitly Allow AI Bots for AEO
+User-agent: PerplexityBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Omgilibot
+Allow: /
+User-agent: Omgili
+Allow: /
+
 # Sitemap Location
 Sitemap: https://0aftermath.com/sitemap.xml

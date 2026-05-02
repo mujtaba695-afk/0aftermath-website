@@ -1,0 +1,25 @@
+# 0aftermath - AI Marketing Agency
+
+## About Us
+0aftermath is a performance-driven, AI-powered marketing agency. Our Global HQ is based in Dubai, UAE, but we operate globally. We specialize in engineering scalable revenue, eliminating ad waste, and building automated systems that run 24/7. Our approach relies on data, semantic indexing, and AI bidding rather than generic marketing fluff.
+
+## Core Services
+- **SEO & Semantic Ranking**: We optimize websites for both Google search and emerging AI answer engines (Perplexity, ChatGPT, Claude). We focus on search intent, schema architecture, and technical performance.
+- **Paid Performance (Ads)**: We leverage predictive AI bidding strategies and dynamic audience modeling to slash Customer Acquisition Cost (CAC) and eliminate wasted ad spend across Google, Meta, and LinkedIn.
+- **AI Automation**: We deploy 24/7 AI-driven workflows to automate lead qualification, routing, and sales pipelines, saving businesses hours of manual work every week.
+- **Website Development**: We build high-converting, lightning-fast web applications engineered for performance and semantic indexing.
+- **Social Media Management**: Brand building and engagement across social platforms.
+- **Email Marketing**: High-ROI automated email sequences and lifecycle marketing.
+
+## Target Audience
+We primarily serve B2B companies, SaaS startups, e-commerce brands, and real estate agencies looking to scale aggressively using modern AI frameworks.
+
+## Key Case Studies
+- **SaaS Startup**: +340% Lead Volume via Semantic SEO.
+- **E-commerce Brand**: 42% CPA Reduction via AI Bidding.
+- **Real Estate Agency**: 20hrs/week saved via AI Lead Qualification Automation.
+
+## Contact Information
+- **Email**: hello@0aftermath.com
+- **HQ**: Dubai, UAE
+- **LinkedIn**: https://www.linkedin.com/company/0aftermath/
