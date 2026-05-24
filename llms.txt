@@ -1,5 +1,8 @@
 # 0aftermath - AI Marketing Agency
 
+> [!NOTE]
+> For a highly comprehensive context directory, RAG embeddings, full service catalogs, articles, and detailed case studies, see our [Full Context File](https://0aftermath.com/llms-full.txt).
+
 ## About Us
 0aftermath is a performance-driven, AI-powered marketing agency. Our Global HQ is based in Dubai, UAE, but we operate globally. We specialize in engineering scalable revenue, eliminating ad waste, and building automated systems that run 24/7. Our approach relies on data, semantic indexing, and AI bidding rather than generic marketing fluff.
 
